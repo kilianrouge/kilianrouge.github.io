@@ -26,11 +26,14 @@ author:
   bio              : "PhD Student at CIRED"
   location         : "Paris, France"
   employer         : "CIRED"
-  email            : "kilian.rouge@agroparistech.fr" 
+  email            : "kilian.rouge@agroparistech.fr"
+
+
+  linkedin         : kilian-rouge-8aa519151
 
   # Academic websites
   googlescholar    : "https://scholar.google.com/citations?user=eTSdqc0AAAAJ&hl=fr"
-
+  orcid            : "0009-0003-0400-9416"
 
   # Repositories and software development
 
@@ -38,7 +41,7 @@ author:
 
 
   # Social media
-  linkedin         : kilian-rouge-8aa519151
+
   
 
 # Publication Category - The following the list of publication categories and their headings
