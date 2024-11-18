@@ -269,7 +269,6 @@ plugins:
   - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-seo-tag
   - jemoji
 
 # Mimic GitHub Pages with --safe
