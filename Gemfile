@@ -6,6 +6,7 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jemoji'
   gem 'webrick', '~> 1.8'
+  gem 'jekyll-scholar', '~> 7.1', '>= 7.1.3'
 end
 
 gem 'github-pages'
