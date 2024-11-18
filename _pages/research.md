@@ -16,10 +16,10 @@ So basically, if we want to keep the **1.5° objective** alive, the dominant app
 To put it a bit simplistically, research on sufficiency tries to answer three questions:
 - **What does it look like?** Meaning what changes in production and consumption patterns are imaginable?
 - **Does it work?** Meaning what are the potential mitigation benefits and what are the potential side-effects?
-- **How do we get there?** Meaning what policies, drivers and barriers? 
-- 
+- **How do we get there?** Meaning what policies, drivers and barriers?
+
 ![Sufficiency in research - A Framework](/images/litreview_framework.png){:style="display:block; margin-left:auto; margin-right:auto"}
-**Figure 1**: _Sufficiency in the literature - A framework analysis_
+<p style="text-align:center;"> **Figure 1**: _Sufficiency in the literature - A framework analysis_</p>
 
 ## Focusing on the socio-economic impacts of sufficiency 
 
