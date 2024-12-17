@@ -1,10 +1,4 @@
----
-layout: archive
-title: "Calendrier de l'après"
-permalink: /lucie/
-author_profile: false
----
-
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -16,56 +10,128 @@ author_profile: false
       margin: 0;
       padding: 0;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .gallery-item {
+    .carousel {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
       border: 1px solid #ccc;
       border-radius: 8px;
-      padding: 10px;
+    }
+    .carousel-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      min-width: 100%;
       text-align: center;
-      opacity: 0.5;
-      transition: opacity 0.3s ease;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    .gallery-item.active {
-      opacity: 1;
-    }
-    .gallery-item img {
+    .carousel-item img {
       max-width: 100%;
       border-radius: 5px;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 18px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .carousel-controls button:disabled {
+      background-color: rgba(0, 0, 0, 0.2);
+      cursor: not-allowed;
+    }
+    .coming-soon {
+      font-style: italic;
+      color: gray;
     }
   </style>
 </head>
 <body>
 
 <h1 style="text-align:center; padding: 20px;">Daily Gallery</h1>
-<div class="gallery">
-  {% assign content_file = site.data.gallery_content %}
-  {% assign start_date = '2025-01-01' | date: '%s' %}
-  {% for i in (0..23) %}
-    {% assign current_date = start_date | plus: i | times: 86400 | date: '%Y-%m-%d' %}
-    {% assign content = content_file[i] %}
-    <div class="gallery-item {% if current_date | date: '%s' <= now | date: '%s' %}active{% endif %}">
-      <h3>Day {{ i | plus: 1 }}</h3>
-      {% if current_date | date: '%s' <= now | date: '%s' %}
-        {% if content.image %}
-          <img src="{{ content.image }}" alt="Content {{ i | plus: 1 }}">
+<div class="carousel" id="carousel">
+  <div class="carousel-container">
+    {% assign content_file = site.data.gallery_content %}
+    {% assign start_date = '2024-12-24' | date: '%s' %}
+    {% for i in (0..23) %}
+      {% assign current_date = start_date | plus: i | times: 86400 | date: '%Y-%m-%d' %}
+      {% assign content = content_file[i] %}
+      <div class="carousel-item">
+        <h3>Day {{ i | plus: 1 }} - {{ current_date }}</h3>
+        {% if current_date | date: '%s' <= now | date: '%s' %}
+          {% if content.image %}
+            <img src="{{ content.image }}" alt="Content {{ i | plus: 1 }}">
+          {% endif %}
+          {% if content.file %}
+            <p><a href="{{ content.file }}">Download File</a></p>
+          {% endif %}
+          {% if content.text %}
+            <p>{{ content.text }}</p>
+          {% endif %}
+        {% elsif current_date | date: '%s' == now | date: '%s' %}
+          <p><strong>Today's content is here!</strong></p>
+        {% else %}
+          <p class="coming-soon">Reviens demain</p>
         {% endif %}
-        {% if content.file %}
-          <p><a href="{{ content.file }}">Download File</a></p>
-        {% endif %}
-        {% if content.text %}
-          <p>{{ content.text }}</p>
-        {% endif %}
-      {% else %}
-        <p>Coming Soon</p>
-      {% endif %}
-    </div>
-  {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="carousel-controls">
+    <button id="prev" disabled>&#10094;</button>
+    <button id="next">&#10095;</button>
+  </div>
 </div>
+
+<script>
+  const carousel = document.querySelector('.carousel-container');
+  const items = document.querySelectorAll('.carousel-item');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+
+  let currentIndex = 0;
+  const todayIndex = new Date().getDate() - 24;
+
+  function updateButtons() {
+    prevButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex >= todayIndex;
+  }
+
+  function showItem(index) {
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+    updateButtons();
+  }
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      showItem(currentIndex);
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < items.length - 1 && currentIndex < todayIndex) {
+      currentIndex++;
+      showItem(currentIndex);
+    }
+  });
+
+  // Initialize carousel to today's item
+  currentIndex = Math.min(todayIndex, items.length - 1);
+  showItem(currentIndex);
+</script>
 
 </body>
 </html>
