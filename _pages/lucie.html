@@ -23,6 +23,7 @@ author_profile: false
       overflow: hidden;
       border: 1px solid #ccc;
       border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .carousel-container {
       display: flex;
@@ -47,16 +48,18 @@ author_profile: false
       transform: translateY(-50%);
     }
     .carousel-controls button {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: transparent;
       border: none;
-      color: white;
-      font-size: 18px;
+      color: #333;
+      font-size: 24px;
       padding: 10px;
       cursor: pointer;
-      border-radius: 50%;
+    }
+    .carousel-controls button:hover {
+      color: #007BFF;
     }
     .carousel-controls button:disabled {
-      background-color: rgba(0, 0, 0, 0.2);
+      color: #ccc;
       cursor: not-allowed;
     }
     .coming-soon {
@@ -67,28 +70,29 @@ author_profile: false
 </head>
 <body>
 
-<h1 style="text-align:center; padding: 20px;">Daily Gallery</h1>
+<h1 style="text-align:center; padding: 20px;">Calendrier de l'Après</h1>
 <div class="carousel" id="carousel">
   <div class="carousel-container">
     {% assign content_file = site.data.gallery_content %}
     {% assign start_date = '2024-12-24' | date: '%s' %}
-    {% for i in (0..23) %}
-      {% assign current_date = start_date | plus: i | times: 86400 | date: '%Y-%m-%d' %}
-      {% assign content = content_file[i] %}
+    {% assign display_all = content_file.show_all | default: 0 %}
+    {% for day, content in content_file %}
+      {% assign day_index = forloop.index0 %}
+      {% assign current_date = start_date | plus: day_index | times: 86400 | date: '%Y-%m-%d' %}
       <div class="carousel-item">
-        <h3>Day {{ i | plus: 1 }} - {{ current_date }}</h3>
-        {% if current_date | date: '%s' <= now | date: '%s' %}
+        <h3>Jour {{ forloop.index }} - {{ start_date | plus: day_index | times: 86400 | date: '%d %B' }}</h3>
+        {% if display_all == 1 or current_date | date: '%s' <= now | date: '%s' %}
           {% if content.image %}
-            <img src="{{ content.image }}" alt="Content {{ i | plus: 1 }}">
+            <img src="{{ content.image }}" alt="Content {{ forloop.index }}">
           {% endif %}
           {% if content.file %}
-            <p><a href="{{ content.file }}">Download File</a></p>
+            <p><a href="{{ content.file }}">Télécharger le fichier</a></p>
           {% endif %}
           {% if content.text %}
             <p>{{ content.text }}</p>
           {% endif %}
         {% elsif current_date | date: '%s' == now | date: '%s' %}
-          <p><strong>Today's content is here!</strong></p>
+          <p><strong>Contenu d'aujourd'hui !</strong></p>
         {% else %}
           <p class="coming-soon">Reviens demain</p>
         {% endif %}
@@ -96,8 +100,8 @@ author_profile: false
     {% endfor %}
   </div>
   <div class="carousel-controls">
-    <button id="prev" disabled>&#10094;</button>
-    <button id="next">&#10095;</button>
+    <button id="prev" disabled>&#8592;</button>
+    <button id="next">&#8594;</button>
   </div>
 </div>
 
@@ -108,7 +112,8 @@ author_profile: false
   const nextButton = document.getElementById('next');
 
   let currentIndex = 0;
-  const todayIndex = new Date().getDate() - 24;
+  const displayAll = {{ content_file.show_all | default: 0 }};
+  const todayIndex = displayAll ? items.length - 1 : Math.max(new Date().getDate() - 24, 0);
 
   function updateButtons() {
     prevButton.disabled = currentIndex === 0;
@@ -141,4 +146,5 @@ author_profile: false
 
 </body>
 </html>
+
 
