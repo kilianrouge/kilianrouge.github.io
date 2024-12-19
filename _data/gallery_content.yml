@@ -1,17 +1,13 @@
 show_all: 1
 content:
   - day: 1
-    date: "2024-12-24"
     text: "Bienvenue au premier jour de notre calendrier de l'Avent !"
 
   - day: 2
-    date: "2024-12-25"
     text: "Joyeux Noël ! Découvrez ce contenu spécial."
 
   - day: 3
-    date: "2024-12-26"
     text: "Le contenu pour le troisième jour vous attend."
 
   - day: 4
-    date: "2024-12-27"
     text: "Un texte inspirant pour illuminer votre journée."

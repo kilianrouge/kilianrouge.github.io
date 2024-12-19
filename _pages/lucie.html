@@ -5,146 +5,103 @@ permalink: /lucie/
 author_profile: false
 ---
 
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .carousel {
-      position: relative;
-      max-width: 800px;
-      margin: auto;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .carousel-container {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .carousel-item {
-      min-width: 100%;
-      text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .carousel-item img {
-      max-width: 100%;
-      border-radius: 5px;
-    }
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-    .carousel-controls button {
-      background-color: transparent;
-      border: none;
-      color: #333;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-    }
-    .carousel-controls button:hover {
-      color: #007BFF;
-    }
-    .carousel-controls button:disabled {
-      color: #ccc;
-      cursor: not-allowed;
-    }
-    .coming-soon {
-      font-style: italic;
-      color: gray;
-    }
-  </style>
-</head>
-<body>
-
-<h1 style="text-align:center; padding: 20px;">Calendrier de l'Après</h1>
-<div class="carousel" id="carousel">
+<div id="calendar-carousel" class="carousel">
   <div class="carousel-container">
-    {% assign content_file = site.data.gallery_content %}
-    {% assign start_date = '2024-12-24' | date: '%s' %}
-    {% assign display_all = content_file.show_all | default: 0 %}
-    {% for day, content in content_file %}
-      {% assign day_index = forloop.index0 %}
-      {% assign current_date = start_date | plus: day_index | times: 86400 | date: '%Y-%m-%d' %}
-      <div class="carousel-item">
-        <h3>Jour {{ forloop.index }} - {{ start_date | plus: day_index | times: 86400 | date: '%d %B' }}</h3>
-        {% if display_all == 1 or current_date | date: '%s' <= now | date: '%s' %}
-          {% if content.image %}
-            <img src="{{ content.image }}" alt="Content {{ forloop.index }}">
-          {% endif %}
-          {% if content.file %}
-            <p><a href="{{ content.file }}">Télécharger le fichier</a></p>
-          {% endif %}
-          {% if content.text %}
-            <p>{{ content.text }}</p>
-          {% endif %}
-        {% elsif current_date | date: '%s' == now | date: '%s' %}
-          <p><strong>Contenu d'aujourd'hui !</strong></p>
-        {% else %}
-          <p class="coming-soon">Reviens demain</p>
+    {% assign current_date = site.time | date: "%Y-%m-%d" %}
+    {% assign start_date = "2024-12-24" %}
+    {% assign end_date = site.time | date: "%Y-%m-%d" | date_add: "24 days" %}
+    {% assign show_all = site.data.gallery_content.show_all %}
+
+    {% for item in site.data.gallery_content.content %}
+      {% assign day_number = item.day %}
+      {% assign day_date = start_date | date_add: day_number | date: "%d %B" %}
+
+      {% if show_all or current_date >= start_date and current_date <= end_date %}
+      <div class="carousel-item" data-day="{{ day_number }}">
+        <h2>Jour {{ day_number }} : {{ day_date }}</h2>
+        <p>{{ item.text }}</p>
+        {% if item.image %}
+          <img src="{{ item.image }}" alt="Image jour {{ day_number }}">
+        {% endif %}
+        {% if item.file %}
+          <a href="{{ item.file }}" class="download">Télécharger</a>
         {% endif %}
       </div>
+      {% endif %}
     {% endfor %}
-  </div>
-  <div class="carousel-controls">
-    <button id="prev" disabled>&#8592;</button>
-    <button id="next">&#8594;</button>
   </div>
 </div>
 
+<style>
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 10px;
+}
+.carousel-container {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  width: 300px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  scroll-snap-align: center;
+  text-align: center;
+}
+.carousel-item h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.carousel-item p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.carousel-item img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.download {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.download:hover {
+  background-color: #0056b3;
+}
+</style>
+
 <script>
-  const carousel = document.querySelector('.carousel-container');
-  const items = document.querySelectorAll('.carousel-item');
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
+document.addEventListener("DOMContentLoaded", function() {
+  const showAll = {{ site.data.gallery_content.show_all }};
+  const currentDate = new Date("{{ site.time | date: "%Y-%m-%d" }}");
+  const startDate = new Date("2024-12-24");
 
-  let currentIndex = 0;
-  const displayAll = {{ content_file.show_all | default: 0 }};
-  const todayIndex = displayAll ? items.length - 1 : Math.max(new Date().getDate() - 24, 0);
+  if (!showAll) {
+    const items = document.querySelectorAll('.carousel-item');
+    items.forEach(item => {
+      const day = parseInt(item.dataset.day);
+      const itemDate = new Date(startDate);
+      itemDate.setDate(startDate.getDate() + day - 1);
 
-  function updateButtons() {
-    prevButton.disabled = currentIndex === 0;
-    nextButton.disabled = currentIndex >= todayIndex;
+      if (currentDate < itemDate) {
+        item.style.display = 'none';
+      }
+    });
   }
-
-  function showItem(index) {
-    carousel.style.transform = `translateX(-${index * 100}%)`;
-    updateButtons();
-  }
-
-  prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      showItem(currentIndex);
-    }
-  });
-
-  nextButton.addEventListener('click', () => {
-    if (currentIndex < items.length - 1 && currentIndex < todayIndex) {
-      currentIndex++;
-      showItem(currentIndex);
-    }
-  });
-
-  // Initialize carousel to today's item
-  currentIndex = Math.min(todayIndex, items.length - 1);
-  showItem(currentIndex);
+});
 </script>
-
-</body>
-</html>
-
-
