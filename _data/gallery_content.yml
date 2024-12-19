@@ -1,4 +1,4 @@
-show_all: 1
+show_all: 0
 content:
   - day: 1
     text: "Bienvenue au premier jour de notre calendrier de l'Avent !"
