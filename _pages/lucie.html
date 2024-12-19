@@ -9,16 +9,16 @@ author_profile: false
   <button id="prev-button" class="carousel-nav">&#8249;</button>
   <div class="carousel-container">
     {% assign current_date = site.time | date: "%Y-%m-%d" %}
-    {% assign start_date = "2024-12-24" %}
+    {% assign start_date = "2024-12-24" | date: "%s" %}
     {% assign show_all = site.data.gallery_content.show_all %}
 
     {% for item in site.data.gallery_content.content %}
       {% assign day_number = item.day %}
-      {% assign day_date = start_date | date: "%s" | date_add: day_number - 1 %}
+      {% assign day_date = start_date | plus: (day_number | minus: 1) | date: "%Y-%m-%d" %}
       {% assign display_date = day_date | date: "%d %B" %}
 
       <div class="carousel-item {% if current_date < day_date and show_all == 0 %}future{% endif %}" data-day="{{ day_number }}">
-        <h2>Jour {{ day_number }} : {{ display_date }} {{ current_date }}</h2>
+        <h2>Jour {{ day_number }} : {{ display_date }}</h2>
         {% if current_date >= day_date or show_all == 1 %}
           <p>{{ item.text }}</p>
           {% if item.image %}
