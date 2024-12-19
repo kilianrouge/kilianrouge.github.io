@@ -9,99 +9,22 @@ author_profile: false
   <div class="carousel-container">
     {% assign current_date = site.time | date: "%Y-%m-%d" %}
     {% assign start_date = "2024-12-24" %}
-    {% assign end_date = site.time | date: "%Y-%m-%d" | date_add: "24 days" %}
     {% assign show_all = site.data.gallery_content.show_all %}
 
     {% for item in site.data.gallery_content.content %}
       {% assign day_number = item.day %}
-      {% assign day_date = start_date | date_add: day_number | date: "%d %B" %}
-
-      {% if show_all or current_date >= start_date and current_date <= end_date %}
-      <div class="carousel-item" data-day="{{ day_number }}">
+      {% assign day_date = start_date | date: "%s" | date_add: day_number | date: "%d %B" %}
+      <div class="carousel-item" data-day="{{ day_number }}" style="{% if show_all or current_date >= start_date and current_date <= end_date %} display: block; {% else %} display: block; opacity: 0.5; pointer-events: none; {% endif %}">
         <h2>Jour {{ day_number }} : {{ day_date }}</h2>
-        <p>{{ item.text }}</p>
-        {% if item.image %}
+        {% if current_date >= start_date and current_date <= day_date or show_all == 1 %}
+          <p>{{ item.text }}</p>
+          {% if item.image %}
           <img src="{{ item.image }}" alt="Image jour {{ day_number }}">
         {% endif %}
         {% if item.file %}
           <a href="{{ item.file }}" class="download">Télécharger</a>
         {% endif %}
-      </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-
-<style>
-.carousel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 10px;
-}
-.carousel-container {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  width: 100%;
-}
-.carousel-item {
-  flex: 0 0 auto;
-  width: 300px;
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: #f9f9f9;
-  scroll-snap-align: center;
-  text-align: center;
-}
-.carousel-item h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.carousel-item p {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.carousel-item img {
-  max-width: 100%;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-.download {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  background-color: #007BFF;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-}
-.download:hover {
-  background-color: #0056b3;
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const showAll = {{ site.data.gallery_content.show_all }};
-  const currentDate = new Date("{{ site.time | date: "%Y-%m-%d" }}");
-  const startDate = new Date("2024-12-24");
-
-  if (!showAll) {
-    const items = document.querySelectorAll('.carousel-item');
-    items.forEach(item => {
-      const day = parseInt(item.dataset.day);
-      const itemDate = new Date(startDate);
-      itemDate.setDate(startDate.getDate() + day - 1);
-
-      if (currentDate < itemDate) {
-        item.style.display = 'none';
-      }
-    });
-  }
-});
-</script>
+       {% else %}
+      { missing future }%>
+     }]</div/>
+</h2>"]}]}
