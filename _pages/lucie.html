@@ -83,8 +83,21 @@ author_profile: false
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const carousel = document.querySelector(".carousel-container");
+  const items = document.querySelectorAll(".carousel-item");
   const prevButton = document.getElementById("prev-button");
   const nextButton = document.getElementById("next-button");
+
+  const currentDate = new Date().toISOString().split("T")[0];
+  let activeIndex = 0;
+
+  items.forEach((item, index) => {
+    const dayDate = item.getAttribute("data-day-date");
+    if (dayDate && currentDate >= dayDate) {
+      activeIndex = index;
+    }
+  });
+
+  items[activeIndex]?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   prevButton.addEventListener("click", () => {
     carousel.scrollBy({ left: -carousel.offsetWidth, behavior: "smooth" });
