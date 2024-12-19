@@ -1,14 +1,16 @@
 show_all: 0
 content:
   - day: 1
-    text: "Bienvenue au premier jour de notre calendrier de l'Avent !"
-    file: "../assets/lucie/QUALITY102.pdf"
+    text: "Premier jour du calendrier de l'après avec un peu de lecture. Hâte d'en discuter avec toi !!"
+    file: "../assets/lucie/Gary_Racines_du_Ciel.epub"
 
   - day: 2
-    text: "Joyeux Noël ! Découvrez ce contenu spécial."
+    text: "Je m'étonne déjà moi même que mon code ait réussi à tenir deux jours !! Cadeau du jour pour que tu retrouves (enfin) ton instrument. Anecdote mignonne: ces billets ont été achetés le 30 novembre. "
+    file: "../assets/lucie/PassionNtD.ics"
 
   - day: 3
-    text: "Le contenu pour le troisième jour vous attend."
+    text: "Un cadeau un peu nul pour changer: toutes les dernières photos d'identité que j'avais sur mon ordi"
+    file: "../assets/lucie/identite.zip"
 
   - day: 4
     text: "Un texte inspirant pour illuminer votre test."
