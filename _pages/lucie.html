@@ -16,13 +16,10 @@ author_profile: false
       {% assign day_number = item.day %}
       {% assign day_number_seconds = day_number | minus: 1 | times: 86400 %}
       {% assign day_date = start_date | date: "%s" | plus: day_number_seconds | date: "%Y-%m-%d" %}
-      {% assign months = "Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Août,Septembre,Octobre,Novembre,Décembre" | split: "," %}
-      {% assign month_number = day_date | date: "%-m" | minus: 1 %}
-      {% assign day = day_date | date: "%-d" %
-      {% assign display_date = day | append: ' ' | append: months[month_number] %}
+      {% assign display_date = day_date | date: "%d %B" %}
 
       <div class="carousel-item {% if current_date < day_date and show_all == 0 %}future{% endif %}" data-day="{{ day_number }}">
-        <h2>Jour {{ day_number }} : {{ display_date }}</h2>
+        <h2>Day {{ day_number }} : {{ display_date }}</h2>
         {% if current_date >= day_date or show_all == 1 %}
           <p>{{ item.text }}</p>
           {% if item.image %}
@@ -32,7 +29,7 @@ author_profile: false
             <a href="{{ item.file }}" class="download">Télécharger</a>
           {% endif %}
         {% else %}
-          <p class="placeholder">Come back soon</p>
+          <p class="placeholder">Reviens demain !!</p>
         {% endif %}
       </div>
     {% endfor %}
