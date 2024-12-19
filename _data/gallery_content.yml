@@ -2,7 +2,7 @@ show_all: 1
 content:
   - day: 1
     text: "Bienvenue au premier jour de notre calendrier de l'Avent !"
-    file: "_data/lucie/QUALITY_103.pdf"
+    file: "assets/lucie/QUALITY102.pdf"
 
   - day: 2
     text: "Joyeux Noël ! Découvrez ce contenu spécial."
