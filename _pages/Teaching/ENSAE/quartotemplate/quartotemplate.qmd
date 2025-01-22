@@ -1,0 +1,58 @@
+---
+author: Sarah Zeller
+title: Awesome presentation
+subtitle: Cool seminar
+format:
+  tud-typst:
+    has_section_slides: false
+
+bibliography: references.bib
+---
+
+# In the morning
+
+## Getting up
+
+-   Turn off alarm
+-   Get out of bed
+
+## Breakfast
+
+-   Eat eggs
+-   Drink coffee
+
+# In the evening
+
+## Dinner
+
+-   Eat spaghetti
+-   Drink wine
+
+## Going to sleep
+
+-   Get in bed
+    -   Count sheep
+    -   Count even more sheep
+-   Add a reference to your \LaTeX-template [@tidyverse]
+
+# Appendix
+
+## A graph for the `mtcars` dataset
+
+```{r}
+#| label: fig-mtcars
+#| fig-height: 5
+#| fig-cap: Horse power correlates with miles per gallon.
+data(mtcars)
+
+hist(mtcars$mpg)
+```
+
+## A table for the `mtcars` dataset
+
+```{r}
+#| label: tbl-mtcars
+
+mtcars |> 
+  head()
+```
