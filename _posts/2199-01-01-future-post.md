@@ -1,11 +1,20 @@
 ---
-title: 'Future Blog Post'
-date: 2199-01-01
-permalink: /posts/2012/08/blog-post-4/
+title: 'Blog Post number 1'
+date: 2025-01-31
+permalink: /posts/2025/sufficiency/
 tags:
   - cool posts
   - category1
   - category2
 ---
 
-This post will show up by default. To disable scheduling of future posts, edit `config.yml` and set `future: false`. 
+This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum and don't have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.
+
+Headings are cool
+======
+
+You can have many headings
+======
+
+Aren't headings cool?
+------
