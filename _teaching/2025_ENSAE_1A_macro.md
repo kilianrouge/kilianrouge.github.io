@@ -1,8 +1,8 @@
 ---
 title: "Introduction à la macroéconomie"
-collection: supervision
+collection: teaching
 type: "TD"
-permalink: /supervision/2024-01-01-supervision-class
+permalink: /teaching/2025_ENSAE_1A_macro
 venue: "ENSAE"
 date: 2025-02-04
 location: "Palaiseau, France"
