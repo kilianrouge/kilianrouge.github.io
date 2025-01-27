@@ -2,13 +2,10 @@
 title: "Introduction à la macroéconomie"
 collection: teaching
 type: "TD"
-permalink: /teaching/2025_ENSAE_1A_macro
+permalink: /teaching/2025-ENSAE-1A-macro
 venue: "ENSAE"
 date: 2025-02-04
 location: "Palaiseau, France"
-redirect_from: 
-  - /teaching/2025_ENSAE_1A_macro
-  - /teaching/2025_ENSAE_1A_macro.md
 ---
 
 This course aims to introduce the major issues, concepts and thinking of macroeconomics. It is a course in modern macroeconomics and will also introduce microeconomic foundations, general equilibrium analysis and market imperfections.
