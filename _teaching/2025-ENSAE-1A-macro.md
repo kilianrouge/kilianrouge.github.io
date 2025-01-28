@@ -1,7 +1,7 @@
 ---
 title: "Introduction à la macroéconomie"
 collection: teaching
-type: "TD"
+type: "supervision"
 permalink: /teaching/2025-ENSAE-1A-macro
 venue: "ENSAE"
 date: 2025-02-04
