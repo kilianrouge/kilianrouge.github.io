@@ -4,7 +4,6 @@ collection: teaching
 type: "supervision"
 permalink: /teaching/2025_ENSAE_1A_macro
 venue: "ENSAE"
-date: 2025-02-04
 location: "Palaiseau, France"
 ---
 
