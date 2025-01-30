@@ -19,7 +19,15 @@ Le format reste à définir, mais je pense que je vais essayer de vous proposer 
 Un premier cadre d'analyse des transitions de sobriété
 ======
 
-J'ai commencé ma thèse par 
+La porte d'entrée aujourd'hui la plus répandue de la remise en question des modes de consommations est environnementale. Il devient de plus en plus difficile de construire des scénarios permettant de limiter la portée du réchauffement climatique sans chercher à faire évoluer la demande des consommateurs. Ces derniers reposent en effet sur des hypothèses de moins en moins réalistes d'innovation technologique ou de capture carbone. Ce qu'on appelle transition de sobriété consiste alors à repenser structurellement nos organisations sociales et économiques pour réduire la demande de ressources et d'énergie.
 
-Aren't headings cool?
+Dans ce billet de blog je vous propose un premier cadre d'analyse des transitions de sobriété résultant d'une revue de littérature réalisée en début de thèse. Les questions qui ont guidées ce travail étaient de comprendre le périmètre des interrogations au sujet de cette notion et d'appréhender les frontières de la recherche existante.
+
+De quoi parle t-on ?
 ------
+
+Une multitude de concepts ce saisissent de cette interrogation et tentent chacun de couvrir certains aspects de cette transition. En France, on entend principalement parler de sobriété, de décroissance, de frugalité ou encore de simplicité volontaire. Le champ des notions connexes est large et les questions posées couvrent, prises dans leur ensemble, de nombreux aspects d'une évolution structurelle de la demande. 
+
+Cette approche par les concepts permet de proposer un cadre normatif pour cette transition, d'alimenter la boite à outils de méthodes et réflexions pour se saisir de ces questions et de nourrir le débat public et politique. Les transitions de sobriété s'appuient néanmoins sur la généralisation de pratiques de sobriété qui existent pour certaines déjà dans nos sociétés. Une autre approche, plus empirique, consiste à analyser ces pratiques et à en tirer des enseignements pour organiser leur passage à l'échelle. L'analyse est ici beaucoup plus sectorielle et ancrée dans les réalités de mise en œuvre.
+
+
