@@ -14,7 +14,7 @@ This course aims to introduce the major issues, concepts and thinking of macroec
 - **Semaine 1:** Le revenu national et la répartition salaire profit
   - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250204_TD_ENSAE_macro_01_slides.html)
   - [Énoncé de TD]()
-  - [Article à préparer]()
+  - <a href="/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD1_Jorgenson%20-%202018%20-%20Production%20and%20Welfare%20Progress%20in%20Economic%20Measurement.pdf" target="_blank">Article à préparer</a>
 - **Semaine 2:** Marché du travail
   - [Énoncé de TD]()
   - [Article à préparer]()
