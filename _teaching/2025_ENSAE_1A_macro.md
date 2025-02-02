@@ -60,7 +60,9 @@ This course aims to introduce the major issues, concepts and thinking of macroec
 - **À chaque cours** : Préparer des pistes de résolution pour le TD, Prendre connaissance de l'article de la semaine
 
 - **Une fois au cours du semestre** : Présenter en binôme un article économique (maximum 10min et 3 slides de support)
-- **Une fois au cours du semestre** : Être discutant lors de la présentation d'un article économique
+- **Une fois au cours du semestre** : Être rapporteur lors de la présentation d'un article économique
+
+_L'inscription se fait au shotgun sur le GoogleSheets envoyé par mail à l'issue de la 1e séance_
 
 ## Modalités d'évaluation
 
