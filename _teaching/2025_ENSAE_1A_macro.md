@@ -68,6 +68,13 @@ L'examen final compte pour 60% de la note. Une évaluation a lieu en TD comptant
 - Présentation de texte : 20%
 - Participation et présence : 20%
 
+| Présentation                    | Rapporteur                                |
+|---------------------------------|-------------------------------------------|
+| Exhaustivité scientifique (30%) | Pertinence des questions (60%)            |
+| Engagement et interaction (30%) | Regard critique sur la présentation (40%) |
+| Esprit de synthèse (15%)        |                                           |
+| Qualité du support (10%)        |                                           |
+| Esprit critique (15%)           |                                           |
 
 ## Contact
 
