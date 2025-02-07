@@ -40,6 +40,8 @@ This course aims to introduce the major issues, concepts and thinking of macroec
   
 *Les diapositives seront mises en ligne le plus souvent la semaine précedant le TD*
 
+**Lien vers l'environnement de programmation**: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kilianrouge/2025_ENSAE_1A_macro_code.git/HEAD)
+
 ## Programme des séances
 
  Chaque séance de TD sera organisée de la manière suivante :
