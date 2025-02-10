@@ -11,13 +11,15 @@ This course aims to introduce the major issues, concepts and thinking of macroec
 
 ## Contenus
 
-- **Semaine 1:** PIB et niveau de vie (*4 février*)
+- **Semaine 1:** PIB et beyond-PIB (*4 février*)
   - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250204_TD_ENSAE_macro_01_slides.html){:target="_blank"}
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD1.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD1_Jorgenson%20-%202018%20-%20Production%20and%20Welfare%20Progress%20in%20Economic%20Measurement.pdf){:target="_blank"}
-- **Semaine 2:** (*10 février*)
+- **Semaine 2:** Faits de Kaldor et modèle de Solow Pt1 (*11 février*)
+  - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD2.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD2_Deaton%20et%20Heston%20-%202010%20-%20Understanding%20PPPs%20and%20PPP-based%20National%20Accounts.pdf){:target="_blank"}
-- **Semaine 3:** (*18 février*)
+- **Semaine 3:** Faits de Kaldor et modèle de Solow Pt2 (*18 février*)
+  - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD2.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD3_Committee%20-%202024%20-%20Scientific%20Background%20to%20the%20Sveriges%20Riksbank%20Prize%20in%20Economic%20Sciences%20in%20Memory%20of%20Alfred%20Nobel.pdf){:target="_blank"}
 - **Semaine 4:** (*3 mars*)
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD4_Attanasio%20et%20Pistaferri%20-%202016%20-%20Consumption%20Inequality.pdf){:target="_blank"}
@@ -38,7 +40,7 @@ This course aims to introduce the major issues, concepts and thinking of macroec
 - **Semaine 12:** (*27 mai*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD12_Alfaro%20et%20al.%20-%202008%20-%20Why%20doesn't%20capital%20flow%20from%20rich%20to%20poor%20countries%20An%20empirical%20investigation.pdf){:target="_blank"}
   
-*Les diapositives seront mises en ligne le plus souvent la semaine précedant le TD*
+*Les diapositives seront mises en ligne le plus souvent la semaine suivant le TD*
 
 **Lien vers l'environnement de programmation**: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kilianrouge/2025_ENSAE_1A_macro_code.git/Students)
 
