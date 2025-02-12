@@ -16,6 +16,7 @@ This course aims to introduce the major issues, concepts and thinking of macroec
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD1.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD1_Jorgenson%20-%202018%20-%20Production%20and%20Welfare%20Progress%20in%20Economic%20Measurement.pdf){:target="_blank"}
 - **Semaine 2:** Faits de Kaldor et modèle de Solow Pt1 (*11 février*)
+  - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250211_TD_ENSAE_macro_02_slides.html){:target="_blank"}
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD2.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD2_Deaton%20et%20Heston%20-%202010%20-%20Understanding%20PPPs%20and%20PPP-based%20National%20Accounts.pdf){:target="_blank"}
 - **Semaine 3:** Faits de Kaldor et modèle de Solow Pt2 (*18 février*)
