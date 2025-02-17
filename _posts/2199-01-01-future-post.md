@@ -26,8 +26,11 @@ Dans ce billet de blog je vous propose un premier cadre d'analyse des transition
 De quoi parle t-on ?
 ------
 
-Une multitude de concepts ce saisissent de cette interrogation et tentent chacun de couvrir certains aspects de cette transition. En France, on entend principalement parler de sobriété, de décroissance, de frugalité ou encore de simplicité volontaire. Le champ des notions connexes est large et les questions posées couvrent, prises dans leur ensemble, de nombreux aspects d'une évolution structurelle de la demande. 
+Une multitude de concepts se saisissent de cette interrogation et tentent chacun de couvrir certains aspects de cette transition. En France, on entend principalement parler de sobriété, de décroissance, de frugalité ou encore de simplicité volontaire. Le champ des notions connexes est large et les questions posées couvrent, prises dans leur ensemble, de nombreux aspects d'une évolution structurelle de la demande. 
 
 Cette approche par les concepts permet de proposer un cadre normatif pour cette transition, d'alimenter la boite à outils de méthodes et réflexions pour se saisir de ces questions et de nourrir le débat public et politique. Les transitions de sobriété s'appuient néanmoins sur la généralisation de pratiques de sobriété qui existent pour certaines déjà dans nos sociétés. Une autre approche, plus empirique, consiste à analyser ces pratiques et à en tirer des enseignements pour organiser leur passage à l'échelle. L'analyse est ici beaucoup plus sectorielle et ancrée dans les réalités de mise en œuvre.
 
+D'un côté on retrouvera donc des enquêtes de terrain, des analyses ex-post de politiques publiques ou des études de cas. De l'autre des travaux de modélisation, des exercices de prospective ou des papiers d'opinion. Ces deux corpus semblent pour l'instant peu dialoguer: beaucoup de papiers empiriques s'intéressent à des pratiques de sobriété sans la mentionner explicitement. Par ailleurs le côté souvent très terre-à-terre des études de cas contraste avec la vision plus globale et normative des travaux conceptuels. Beaucoup de papiers conceptuels présentent les changements de nos modes de consommation comme une transformation profonde de nos sociétés, une révolution culturelle. On voit mal le déploiement de voies vélo, la tarification incitative des déchets ménagers ou la régulation des AirBnB avoir leur place dans ces réflexions. 
+
+Les deux aspects me semblent pourtant essentiels !  
 
