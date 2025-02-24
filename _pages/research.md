@@ -18,8 +18,9 @@ To put it a bit simplistically, research on sufficiency tries to answer three qu
 - **Does it work?** Meaning what are the potential mitigation benefits and what are the potential side-effects?
 - **How do we get there?** Meaning what policies, drivers and barriers?
 
-![Sufficiency in research - A Framework](/images/blog/litreview_framework.svg){:style="display:block; margin-left:auto; margin-right:auto"}
-<p style="text-align:center;"> Figure 1: Sufficiency in the literature - A framework analysis</p>
+<p align="center">
+  <img src="/images/blog/litreview_framework.svg" alt="Literature review framework" style="width: 100%; max-width: 800px;">Figure 1: Sufficiency in the literature - A framework analysis
+</p>
 
 ## Focusing on the socio-economic impacts of sufficiency 
 
