@@ -19,7 +19,8 @@ To put it a bit simplistically, research on sufficiency tries to answer three qu
 - **How do we get there?** Meaning what policies, drivers and barriers?
 
 <p align="center">
-  <img src="/images/blog/litreview_framework.svg" alt="Literature review framework" style="width: 100%; max-width: 800px;">Figure 1: Sufficiency in the literature - A framework analysis
+  <img src="/images/blog/litreview_framework.svg" alt="Literature review framework" style="width: 100%; max-width: 800px;">
+Figure 1: Sufficiency in the literature - A framework analysis
 </p>
 
 ## Focusing on the socio-economic impacts of sufficiency 
