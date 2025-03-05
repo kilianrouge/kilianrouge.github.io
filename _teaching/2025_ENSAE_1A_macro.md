@@ -24,9 +24,11 @@ This course aims to introduce the major issues, concepts and thinking of macroec
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD2.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD3_Committee%20-%202024%20-%20Scientific%20Background%20to%20the%20Sveriges%20Riksbank%20Prize%20in%20Economic%20Sciences%20in%20Memory%20of%20Alfred%20Nobel.pdf){:target="_blank"}
 - **Semaine 4:** (*3 mars*)
+  - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250303_TD_ENSAE_macro_04_slides.html){:target="_blank"} 
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD3.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD4_Attanasio%20et%20Pistaferri%20-%202016%20-%20Consumption%20Inequality.pdf){:target="_blank"}
 - **Semaine 5:** (*11 mars*)
+    - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD3b.pdf){:target="_blank"}
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD5_Bick%20et%20al.%20-%202018%20-%20How%20Do%20Hours%20Worked%20Vary%20with%20Income%20Cross-Country%20Evidence%20and%20Implications.pdf){:target="_blank"}
 - **Semaine 6:** (*17 mars*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD6_Crouzet%20et%20al.%20-%202022%20-%20The%20Economics%20of%20Intangible%20Capital.pdf){:target="_blank"}
