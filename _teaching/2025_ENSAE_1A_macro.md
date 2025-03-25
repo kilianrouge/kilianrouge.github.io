@@ -38,7 +38,7 @@ This course aims to introduce the major issues, concepts and thinking of macroec
 - **Semaine 7:** (*26 mars*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD7_Tenreyro%20-%202022%20-%20THE%20ECONOMY%20AND%20POLICY%20TRADE-OFFS.pdf){:target="_blank"}
 - **Semaine 8:** (*9 avril*)
-    - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD8_Jordà%20et%20al.%20-%20Macrofinancial%20History%20and%20the%20New%20Business%20Cycle%20Facts.pdf){:target="_blank"}
+    - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD8_Texte.pdf){:target="_blank"}
 - **Semaine 9:** (*16 avril*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD9_Ramey%20-%202011%20-%20Can%20Government%20Purchases%20Stimulate%20the%20Economy.pdf){:target="_blank"}
 - **Semaine 10:** (*29 avril*)
