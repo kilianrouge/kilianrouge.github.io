@@ -35,17 +35,17 @@ This course aims to introduce the major issues, concepts and thinking of macroec
   - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250318_TD_ENSAE_macro_06_slides.html){:target="_blank"} 
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD4.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD6_Crouzet%20et%20al.%20-%202022%20-%20The%20Economics%20of%20Intangible%20Capital.pdf){:target="_blank"}
-- **Semaine 7:** (*26 mars*)
+- **Semaine 7:** (*25 mars*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD7_Tenreyro%20-%202022%20-%20THE%20ECONOMY%20AND%20POLICY%20TRADE-OFFS.pdf){:target="_blank"}
-- **Semaine 8:** (*9 avril*)
+- **Semaine 8:** (*8 avril*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD8_Texte.pdf){:target="_blank"}
-- **Semaine 9:** (*16 avril*)
+- **Semaine 9:** (*15 avril*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD9_Ramey%20-%202011%20-%20Can%20Government%20Purchases%20Stimulate%20the%20Economy.pdf){:target="_blank"}
 - **Semaine 10:** (*29 avril*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD10_Ramey%20-%202019%20-%20Ten%20Years%20After%20the%20Financial%20Crisis%20What%20Have%20We%20Learned%20from%20the%20Renaissance%20in%20Fiscal%20Research.pdf){:target="_blank"}
-- **Semaine 11:** (*7 mai*)
+- **Semaine 11:** (*6 mai*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD11_Nakamura%20et%20Steinsson%20-%202018%20-%20Identification%20in%20Macroeconomics.pdf){:target="_blank"}
-- **Semaine 12:** (*28 mai*)
+- **Semaine 12:** (*27 mai*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD12_Alfaro%20et%20al.%20-%202008%20-%20Why%20doesn't%20capital%20flow%20from%20rich%20to%20poor%20countries%20An%20empirical%20investigation.pdf){:target="_blank"}
   
 *Les diapositives seront mises en ligne le plus souvent la semaine suivant le TD*
