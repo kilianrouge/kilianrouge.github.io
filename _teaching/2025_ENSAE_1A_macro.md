@@ -36,6 +36,7 @@ This course aims to introduce the major issues, concepts and thinking of macroec
   - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD4.pdf){:target="_blank"}
   - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD6_Crouzet%20et%20al.%20-%202022%20-%20The%20Economics%20of%20Intangible%20Capital.pdf){:target="_blank"}
 - **Semaine 7:** (*25 mars*)
+    - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250325_TD_ENSAE_macro_07_slides.html){:target="_blank"}
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD7_Tenreyro%20-%202022%20-%20THE%20ECONOMY%20AND%20POLICY%20TRADE-OFFS.pdf){:target="_blank"}
 - **Semaine 8:** (*8 avril*)
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD8_Texte.pdf){:target="_blank"}
