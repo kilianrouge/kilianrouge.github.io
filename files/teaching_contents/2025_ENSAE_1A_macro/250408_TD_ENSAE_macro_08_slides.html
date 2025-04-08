@@ -10,7 +10,9 @@
 <link href="250408_TD_ENSAE_macro_08_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Rappels de cours</title>
+  <meta name="author" content="Kilian Rouge">
+  <meta name="dcterms.date" content="2025-04-08">
+  <title>Monnaie &amp; Inflation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +32,7 @@
     }
   </style>
   <link rel="stylesheet" href="250408_TD_ENSAE_macro_08_slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="assets/logo.css">
   <link href="250408_TD_ENSAE_macro_08_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="250408_TD_ENSAE_macro_08_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="250408_TD_ENSAE_macro_08_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -243,6 +246,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -319,53 +323,36 @@
       margin-right: 0; 
     }
   </style>
+  <script src="assets/logo.js" type="application/javascript"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Rappels de cours</h1>
+  <h1 class="title">Monnaie &amp; Inflation</h1>
+  <p class="subtitle">TD Introduction à la macroéconomie</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Kilian Rouge 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:kilian.rouge@agroparistech.fr">kilian.rouge@agroparistech.fr</a>
+</div>
+        <p class="quarto-title-affiliation">
+            CIRED
+          </p>
+    </div>
 </div>
 
+  <p class="date">2025-04-08</p>
 </section>
-<section class="slide level2">
+<section>
+<section id="rappels-de-cours" class="title-slide slide level1 center">
+<h1>Rappels de cours</h1>
 
-title: Monnaie et Inflation subtitle: TD Introduction à la macroéconomie format: revealjs: theme: clean slide-level: 2 scrollable: true bibliography: /Users/kilianrouge/Library/texmf/bibtex/bib/Biblio.bib csl: assets/apa.csl citeproc: true citations-hover: true logo: assets/logo_cired_ensae.png css: assets/logo.css header-includes:
-<script src="assets/logo.js" type="application/javascript"></script>
-<pre><code>    include-in-header:
-        text: |
-            &lt;style&gt;
-            .exercise {
-              order: 1;
-              background-color: #f5f5f5;
-              border-left: 5px solid #2c3e50;
-              padding: 15px;
-              margin-bottom: 20px;
-              border-radius: 5px;
-            }
-
-            .solution {
-              order: 2;
-              background-color: #e6f5ea; /* Light mint green - more pleasant than the current blue */
-              border-left: 5px solid #4caf50; /* Matching border color */
-              padding: 15px;
-              margin-top: 10px;
-              border-radius: 5px;
-              font-size: 0.9em;
-              overflow-y: auto;
-              max-height: none;
-            }
-
-            .solution .math.display {
-              font-size: 0.6em;
-              overflow-x: auto;
-              max-width: 100%;
-            }
-            &lt;/style&gt;</code></pre>
-<p>jupyter: python3 conda-env: /Users/kilianrouge/miniconda3/envs/quarto_env embed-resources: false html-math-method: method: mathjax url: “https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js” author: - name: Kilian Rouge email: kilian.rouge@agroparistech.fr affiliations: CIRED date: 2025-04-08 filters: - shinylive</p>
 </section>
 <section id="décomposition-de-la-masse-monétaire" class="slide level2">
 <h2>Décomposition de la masse monétaire</h2>
@@ -424,7 +411,7 @@ title: Monnaie et Inflation subtitle: TD Introduction à la macroéconomie forma
 <p>Supposez une augmentation du nombre de pickpockets.</p>
 <p><strong>Questions :</strong> - Comment cela modifierait-il la part de leur argent que les gens souhaitent conserver en espèces plutôt que sous forme de chèques ? - Si la Banque centrale maintient la base monétaire constante, qu’adviendra-t-il de la masse monétaire <span class="math inline">\(M1\)</span> ?</p>
 </section>
-<section id="exercice-3---intérêts-sur-les-réserves-obligatoires" class="slide level2">
+<section id="exercice-3---intérêts-sur-les-réserves-obligatoires" class="slide level2 scrollable">
 <h2>Exercice 3 - Intérêts sur les réserves obligatoires</h2>
 <p>Considérez une économie où les ménages n’utilisent quasiment plus d’argent liquide (donc <span class="math inline">\(\chi \to 0\)</span>). Supposez également que la Banque centrale abaisse le taux de réserves obligatoires à presque zéro (donc <span class="math inline">\(\rho \to 0\)</span>).</p>
 <ol type="1">
@@ -442,7 +429,7 @@ title: Monnaie et Inflation subtitle: TD Introduction à la macroéconomie forma
 <p>Supposez une économie qui croît à un taux constant <span class="math inline">\(g\)</span>, une demande de monnaie issue du modèle Baumol-Tobin et un multiplicateur monétaire soit <span class="math inline">\(\omega\)</span>. Supposons que le gouvernement souhaite maintenir une inflation nulle.</p>
 <p><strong>Question :</strong> Quel montant de revenus de seigneuriage peut-il obtenir en pourcentage du PIB ? Autrement dit, trouvez une expression pour le niveau de <span class="math display">\[\frac{MB_t - MB_{t-1}}{p_tY_t}\]</span> compatible avec une inflation nulle. Comment cela dépend-il de <span class="math inline">\(g\)</span>, de <span class="math inline">\(F\)</span> et de <span class="math inline">\(\omega\)</span> ? (Indice : utilisez le résultat de l’exercice précédent.)</p>
 </section>
-<section id="exercice-6---seigneuriage-bancaire" class="slide level2">
+<section id="exercice-6---seigneuriage-bancaire" class="slide level2 scrollable">
 <h2>Exercice 6 - Seigneuriage bancaire</h2>
 <p>Supposez que la demande de monnaie <span class="math inline">\(M1\)</span> soit donnée par <span class="math display">\[M = A - \eta i\]</span> où <span class="math inline">\(M\)</span> est la quantité de monnaie, <span class="math inline">\(pY\)</span> le PIB nominal, <span class="math inline">\(i\)</span> le taux d’intérêt nominal et <span class="math inline">\(A\)</span> et <span class="math inline">\(\eta\)</span> sont des paramètres. Les ménages souhaitent détenir une fraction <span class="math inline">\(\chi\)</span> de leur monnaie <span class="math inline">\(M1\)</span> sous forme d’espèces et une fraction <span class="math inline">\(1 - \chi\)</span> sous forme de comptes chèques, qui ne rapportent pas d’intérêts. Les banques perçoivent des droits de seigneuriage en acceptant des dépôts chèques et en investissant dans des actifs qui rapportent le taux d’intérêt nominal.</p>
 <ol type="1">
@@ -456,10 +443,11 @@ title: Monnaie et Inflation subtitle: TD Introduction à la macroéconomie forma
 </ul></li>
 <li><p>Si <span class="math inline">\(\eta = 0,2\)</span>, quel montant de seigneuriage les banques percevraient-elles en pourcentage du PIB si le taux d’intérêt nominal atteignait 3 % ?</p></li>
 </ol>
-</section>
+</section></section>
 <section id="papier-scientifique-de-la-semaine" class="title-slide slide level1 center">
 <h1>Papier scientifique de la semaine</h1>
 <div class="quarto-auto-generated-content">
+<p><img src="assets/logo_cired_ensae.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -649,7 +637,7 @@ title: Monnaie et Inflation subtitle: TD Introduction à la macroéconomie forma
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
