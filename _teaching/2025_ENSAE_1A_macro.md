@@ -43,6 +43,7 @@ This course aims to introduce the major issues, concepts and thinking of macroec
     - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD5.pdf){:target="_blank"} 
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD8_Texte.pdf){:target="_blank"}
 - **Semaine 9:** (*15 avril*)
+    - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250415_TD_ENSAE_macro_09_slides.html){:target="_blank"} 
     - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD6.pdf){:target="_blank"} 
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD9_Ramey%20-%202011%20-%20Can%20Government%20Purchases%20Stimulate%20the%20Economy.pdf){:target="_blank"}
 - **Semaine 10:** (*29 avril*)
