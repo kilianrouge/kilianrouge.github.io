@@ -51,9 +51,12 @@ This course aims to introduce the major issues, concepts and thinking of macroec
     - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD7.pdf){:target="_blank"} 
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD10_Ramey%20-%202019%20-%20Ten%20Years%20After%20the%20Financial%20Crisis%20What%20Have%20We%20Learned%20from%20the%20Renaissance%20in%20Fiscal%20Research.pdf){:target="_blank"}
 - **Semaine 11:** (*6 mai*)
+    - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250506_TD_ENSAE_macro_11_slides.html){:target="_blank"} 
     - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD7.pdf){:target="_blank"} 
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD11_Nakamura%20et%20Steinsson%20-%202018%20-%20Identification%20in%20Macroeconomics.pdf){:target="_blank"}
 - **Semaine 12:** (*27 mai*)
+    - [Support de TD](/files/teaching_contents/2025_ENSAE_1A_macro/250520_TD_ENSAE_macro_12_slides.html){:target="_blank"} 
+    - [Énoncé de TD](/files/teaching_contents/2025_ENSAE_1A_macro/sujets/TD8.pdf){:target="_blank"} 
     - [Article à préparer](/files/teaching_contents/2025_ENSAE_1A_macro/textes/TD12_Alfaro%20et%20al.%20-%202008%20-%20Why%20doesn't%20capital%20flow%20from%20rich%20to%20poor%20countries%20An%20empirical%20investigation.pdf){:target="_blank"}
   
 *Les diapositives seront mises en ligne le plus souvent la semaine suivant le TD*
