@@ -14,6 +14,6 @@ Dans le cadre du projet *Défis de Sciences* monté par l'association française
 
 ## Ressources
 
-* [Lien vers le modèle](https://huggingface.co/spaces/kiliyo/world3-cired): cette interface interactive permet de simuler les différents scénarios de la version 2004 eu modèle World3
-* [Guide technique pour l'enseignant](/files/outreach/250530_World3_CIRED_Guide.pdf): nous détaillons les interprétations pouvant être faites sur chacun des scénarios, donnons quelques pistes de discussion et proposons des ressources complémentaires pour aller plus loin
+* [Lien vers le modèle](https://huggingface.co/spaces/kiliyo/world3-cired){:target="_blank"} : cette interface interactive permet de simuler les différents scénarios de la version 2004 eu modèle World3
+* [Guide technique pour l'enseignant](/files/outreach/250530_World3_CIRED_Guide.pdf){:target="_blank"} : nous détaillons les interprétations pouvant être faites sur chacun des scénarios, donnons quelques pistes de discussion et proposons des ressources complémentaires pour aller plus loin
 
