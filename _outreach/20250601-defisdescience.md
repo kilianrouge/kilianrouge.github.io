@@ -1,6 +1,6 @@
 ---
 title: "Comment modéliser l'avenir de la planète ?"
-excerpt: "Une action de vulgarisation auprès de lycées et collégiens à la rentrée 2025"
+excerpt: "How to model our planet's future ! An outreach action for secondary schools at the start of the 2025 academic year using the World3 model."
 collection: outreach
 date: 2025-06-01
 permalink: /outreach/defis-de-science-2025
