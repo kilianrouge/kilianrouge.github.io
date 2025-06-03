@@ -5,7 +5,7 @@ collection: outreach
 date: 2025-06-01
 permalink: /outreach/defis-de-science-2025
 header:
-  teaser: "world3.jpg"
+  teaser: "world3.png"
 ---
 
 ## Enjeux
