@@ -10,7 +10,7 @@ header:
 
 ## Enjeux
 
-Dans le cadre du projet *Défis de Sciences* monté par l'association française pour l'éducation par la recherche (AFPER), Julia Péré, [Gabriele Dabbaghian](https://gabriele-dabbaghian.github.io) et moi même avons monté cette activité à destination de collégiens et lycéens. Nous avons ressorti des tiroirs le modèle *World3* du rapport *Limits to Growth* de 1972 afin d'illustrer ce qu'est un modèle, ce que les chercheurs peuvent (et ne peuvent pas) lui faire dire et plus généralement comment la science peut aider à comprendre les enjeux environnementaux.
+Dans le cadre du projet *Défis de Sciences* monté par l'association française pour l'éducation par la recherche (AFPER), Julia Péré, [Gabriele Dabbaghian](https://gabriele-dabbaghian.github.io) et moi même avons monté avec Stéphane Debove de l'AFPER cette activité à destination de collégiens et lycéens. Nous avons ressorti des tiroirs le modèle *World3* du rapport *Limits to Growth* de 1972 afin d'illustrer ce qu'est un modèle, ce que les chercheurs peuvent (et ne peuvent pas) lui faire dire et plus généralement comment la science peut aider à comprendre les enjeux environnementaux.
 
 ## Ressources
 
