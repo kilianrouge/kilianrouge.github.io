@@ -5,7 +5,7 @@ permalink: /outreach/
 author_profile: true
 ---
 
-<div class="grid__wrapper">
+<div class="outreach-grid">
   {% for post in site.outreach %}
     {% include outreach-single.html type="grid" %}
   {% endfor %}

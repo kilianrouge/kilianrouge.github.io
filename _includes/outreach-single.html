@@ -14,6 +14,7 @@
 
 <div class="{{ include.type | default: 'list' }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if teaser %}
     <div class="archive__item-teaser">
       <img src=
         {% if teaser contains "://" %}
@@ -21,23 +22,29 @@
         {% else %}
           "{{ base_path }}/files/outreach/teaser/{{ teaser }}"
         {% endif %}
-        alt="">
+        alt="{{ title | strip_html }}"
+        loading="lazy">
     </div>
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-      {% endif %}
-    </h2>
-    
-    <p class="archive__item-date">{{ post.date | date: "%B %Y" }}</p>
-    
-    {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }} <a href="{{ base_path }}{{ post.url }}" rel="permalink"><strong>Read more</strong></a></p>
     {% endif %}
+    
+    <div class="archive__item-content">
+      <h2 class="archive__item-title" itemprop="headline">
+        {% if post.link %}
+          <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+        {% else %}
+          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+        {% endif %}
+      </h2>
+      
+      {% if post.date %}
+      <p class="archive__item-date">{{ post.date | date: "%B %Y" }}</p>
+      {% endif %}
+      
+      {% if post.excerpt and site.read_more != 'enabled' %}
+      <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
+      {% elsif post.excerpt and site.read_more == 'enabled' %}
+      <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }} <a href="{{ base_path }}{{ post.url }}" rel="permalink"><strong>Read more</strong></a></div>
+      {% endif %}
+    </div>
   </article>
 </div>
