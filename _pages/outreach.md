@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Science Outreach"
+title: "Outreach"
 permalink: /outreach/
 author_profile: true
 ---
