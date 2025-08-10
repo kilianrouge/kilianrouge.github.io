@@ -6,9 +6,9 @@ author_profile: true
 redirect_from:
   - /ressource
 ---
-## Prep Revision Sheets
+## Prépa Revision Sheets
 
-I am sharing here my revision sheets, created during my years in prep school using LaTeX. They helped me improve my productivity and I hope they will help future students in their studies.
+I am sharing here my revision sheets, created during my years in prépa using LaTeX. They helped me improve my productivity and I hope they will help future students in their studies.
 
 <div style="font-family: 'Courier New', Courier, monospace; font-size: 0.95em; background: #f8f8f8; border-radius: 6px; padding: 1em; margin-bottom: 1.5em;">
 <b>License: CC BY-NC-ND 4.0</b><br>
