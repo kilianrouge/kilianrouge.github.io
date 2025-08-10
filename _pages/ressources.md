@@ -18,7 +18,7 @@ Non-commercial — Commercial use is prohibited<br>
 No Derivatives — Sharing modified versions is not allowed
 </div>
 
-<div style="display: flex; flex-direction: column; gap: 1em;">
-  <a href="/files/ressources/fichespcsi-book-yo.pdf" target="_blank" style="font-weight: bold; color: #fff; background: #007acc; padding: 0.7em 1.2em; border-radius: 5px; text-decoration: none; width: fit-content;">Download PCSI Sheets (PDF)</a>
-  <a href="/files/ressources/fichespc-book-yo.pdf" target="_blank" style="font-weight: bold; color: #fff; background: #007acc; padding: 0.7em 1.2em; border-radius: 5px; text-decoration: none; width: fit-content;">Download PC Sheets (PDF)</a>
-</div>
+<ul style="list-style: none; padding-left: 0;">
+  <li><a href="/files/ressources/fichespcsi-book-yo.pdf" target="_blank" style="color: #007acc; text-decoration: underline; font-weight: 500;">Download PCSI Sheets (PDF)</a></li>
+  <li><a href="/files/ressources/fichespc-book-yo.pdf" target="_blank" style="color: #007acc; text-decoration: underline; font-weight: 500;">Download PC Sheets (PDF)</a></li>
+</ul>
