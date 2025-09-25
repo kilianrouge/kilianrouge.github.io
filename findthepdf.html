@@ -1,0 +1,670 @@
+---
+layout: default
+title: "Find the PDF"
+permalink: /findthepdf/
+hidden: true
+---
+
+<style>
+  .findthepdf-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .entry-card {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #2c3e50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .entry-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-author {
+    color: #34495e;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-date {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+  }
+
+  .entry-doi {
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+
+  .entry-doi:hover {
+    background: #2980b9;
+    color: white;
+    text-decoration: none;
+  }
+
+  .upload-area {
+    border: 2px dashed #bdc3c7;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    margin: 2rem 0;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .upload-area:hover,
+  .upload-area.dragover {
+    border-color: #3498db;
+    background: #ecf0f1;
+  }
+
+  .upload-area input[type="file"] {
+    display: none;
+  }
+
+  .upload-text {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+  }
+
+  .file-info {
+    background: #e8f5e8;
+    border: 1px solid #27ae60;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #27ae60;
+  }
+
+  .buttons-container {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+  }
+
+  .btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .error {
+    background: #ffe6e6;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+
+  .success {
+    background: #e8f5e8;
+    border: 1px solid #27ae60;
+    color: #27ae60;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .bibkey {
+    background: #f8f9fa;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #6c757d;
+    margin-left: 0.5rem;
+  }
+</style>
+
+<div class="findthepdf-container">
+  <h1>Find the PDF</h1>
+  <p>Help us find PDFs for research papers! You'll be assigned a random paper - find and upload its PDF to contribute to our collection.</p>
+
+  <div id="loading" class="text-center">
+    <div class="loading"></div>
+    Loading your assigned paper...
+  </div>
+
+  <div id="main-content" class="hidden">
+    <div class="entry-card">
+      <div class="entry-title" id="entry-title"></div>
+      <div class="entry-author" id="entry-author"></div>
+      <div class="entry-date" id="entry-date"></div>
+      <div>
+        <a href="#" id="entry-doi" class="entry-doi" target="_blank">View DOI</a>
+        <span class="bibkey" id="entry-bibkey"></span>
+      </div>
+    </div>
+
+    <div class="upload-area" id="upload-area">
+      <input type="file" id="file-input" accept=".pdf" />
+      <div class="upload-text">
+        <strong>Drag and drop a PDF file here</strong><br>
+        or <strong>click to browse</strong>
+      </div>
+      <div id="file-info" class="file-info hidden"></div>
+    </div>
+
+    <div id="messages"></div>
+
+    <div class="buttons-container">
+      <button id="upload-btn" class="btn" disabled>Upload PDF</button>
+      <button id="next-btn" class="btn">Next Paper</button>
+      <button id="token-btn" class="btn" style="background: #95a5a6;">⚙️ Setup Token</button>
+    </div>
+
+    <div id="token-setup" class="hidden" style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+      <h3>GitHub Token Setup</h3>
+      <p>To enable PDF uploads, you need a GitHub Personal Access Token:</p>
+      <ol>
+        <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub Settings → Personal Access Tokens</a></li>
+        <li>Click "Generate new token (classic)"</li>
+        <li>Give it a name like "FindPDF Upload"</li>
+        <li>Select the <strong>"repo"</strong> scope (full control of repositories)</li>
+        <li>Click "Generate token"</li>
+        <li>Copy the token and paste it below</li>
+      </ol>
+      <div style="margin: 1rem 0;">
+        <input type="password" id="token-input" placeholder="Paste your GitHub token here" style="width: 70%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+        <button id="save-token" class="btn" style="margin-left: 0.5rem;">Save Token</button>
+      </div>
+      <p style="color: #856404; font-size: 0.9rem;">
+        <strong>Security:</strong> Your token is stored only in your browser's local storage and never sent to any third party.
+      </p>
+      <div id="token-status"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+class FindThePDF {
+  constructor() {
+    this.bibEntries = [];
+    this.currentEntry = null;
+    this.selectedFile = null;
+    this.userFingerprint = this.generateFingerprint();
+    
+    this.init();
+  }
+
+  generateFingerprint() {
+    // Create a unique fingerprint based on various browser characteristics
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.textBaseline = 'top';
+    ctx.font = '14px Arial';
+    ctx.fillText('Browser fingerprint', 2, 2);
+    
+    const fingerprint = [
+      navigator.userAgent,
+      navigator.language,
+      screen.width + 'x' + screen.height,
+      new Date().getTimezoneOffset(),
+      canvas.toDataURL()
+    ].join('|');
+    
+    // Simple hash function
+    let hash = 0;
+    for (let i = 0; i < fingerprint.length; i++) {
+      const char = fingerprint.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32-bit integer
+    }
+    
+    return Math.abs(hash).toString(36);
+  }
+
+  async init() {
+    try {
+      await this.loadBibFile();
+      this.assignEntry();
+      this.setupEventListeners();
+      document.getElementById('loading').classList.add('hidden');
+      document.getElementById('main-content').classList.remove('hidden');
+    } catch (error) {
+      this.showError('Failed to load bibliography data: ' + error.message);
+    }
+  }
+
+  async loadBibFile() {
+    try {
+      const response = await fetch('/files/findapdf/findapdf_tofind.bib');
+      if (!response.ok) throw new Error('Failed to load bibliography file');
+      
+      const bibText = await response.text();
+      this.bibEntries = this.parseBibTeX(bibText);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  parseBibTeX(bibText) {
+    const entries = [];
+    const entryRegex = /@(\w+)\{([^,]+),([^}]+)\}/gs;
+    let match;
+
+    while ((match = entryRegex.exec(bibText)) !== null) {
+      const [, type, bibkey, content] = match;
+      
+      const entry = {
+        type: type,
+        bibkey: bibkey.trim(),
+        raw: match[0]
+      };
+
+      // Parse individual fields
+      const fieldRegex = /(\w+)\s*=\s*\{([^}]+)\}/g;
+      let fieldMatch;
+      
+      while ((fieldMatch = fieldRegex.exec(content)) !== null) {
+        const [, field, value] = fieldMatch;
+        entry[field.toLowerCase()] = value.trim();
+      }
+
+      entries.push(entry);
+    }
+
+    return entries;
+  }
+
+  assignEntry() {
+    const storage = localStorage.getItem('findthepdf_assignments') || '{}';
+    const assignments = JSON.parse(storage);
+    
+    const now = Date.now();
+    const twentyMinutes = 20 * 60 * 1000;
+
+    // Check if user has a current assignment
+    if (assignments[this.userFingerprint]) {
+      const assignment = assignments[this.userFingerprint];
+      if (now - assignment.timestamp < twentyMinutes) {
+        // Use existing assignment
+        this.currentEntry = this.bibEntries.find(entry => entry.bibkey === assignment.bibkey);
+        if (this.currentEntry) {
+          this.displayEntry();
+          return;
+        }
+      }
+    }
+
+    // Clean up expired assignments
+    for (const key in assignments) {
+      if (now - assignments[key].timestamp >= twentyMinutes) {
+        delete assignments[key];
+      }
+    }
+
+    // Get available entries (not assigned to anyone)
+    const assignedBibkeys = Object.values(assignments).map(a => a.bibkey);
+    const availableEntries = this.bibEntries.filter(entry => !assignedBibkeys.includes(entry.bibkey));
+
+    if (availableEntries.length === 0) {
+      // If all entries are assigned, pick from the oldest assignments
+      const oldestAssignment = Object.entries(assignments)
+        .sort(([,a], [,b]) => a.timestamp - b.timestamp)[0];
+      
+      if (oldestAssignment) {
+        delete assignments[oldestAssignment[0]];
+      }
+    }
+
+    // Assign a random entry
+    const randomEntry = availableEntries.length > 0 
+      ? availableEntries[Math.floor(Math.random() * availableEntries.length)]
+      : this.bibEntries[Math.floor(Math.random() * this.bibEntries.length)];
+
+    this.currentEntry = randomEntry;
+    assignments[this.userFingerprint] = {
+      bibkey: randomEntry.bibkey,
+      timestamp: now
+    };
+
+    localStorage.setItem('findthepdf_assignments', JSON.stringify(assignments));
+    this.displayEntry();
+  }
+
+  displayEntry() {
+    if (!this.currentEntry) return;
+
+    document.getElementById('entry-title').textContent = this.currentEntry.title || 'No title';
+    document.getElementById('entry-author').textContent = this.currentEntry.author || 'No author';
+    document.getElementById('entry-date').textContent = this.currentEntry.date || 'No date';
+    document.getElementById('entry-bibkey').textContent = this.currentEntry.bibkey;
+    
+    const doiLink = document.getElementById('entry-doi');
+    if (this.currentEntry.doi) {
+      doiLink.href = `https://doi.org/${this.currentEntry.doi}`;
+      doiLink.style.display = 'inline-block';
+    } else {
+      doiLink.style.display = 'none';
+    }
+  }
+
+  setupEventListeners() {
+    const uploadArea = document.getElementById('upload-area');
+    const fileInput = document.getElementById('file-input');
+    const uploadBtn = document.getElementById('upload-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    // Drag and drop events
+    uploadArea.addEventListener('click', () => fileInput.click());
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('dragover');
+    });
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('dragover');
+    });
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('dragover');
+      const files = e.dataTransfer.files;
+      if (files.length > 0 && files[0].type === 'application/pdf') {
+        this.handleFileSelect(files[0]);
+      }
+    });
+
+    // File input change
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        this.handleFileSelect(e.target.files[0]);
+      }
+    });
+
+    // Button events
+    uploadBtn.addEventListener('click', () => this.uploadFile());
+    nextBtn.addEventListener('click', () => this.getNextEntry());
+    
+    // Token management
+    const tokenBtn = document.getElementById('token-btn');
+    const saveTokenBtn = document.getElementById('save-token');
+    
+    tokenBtn.addEventListener('click', () => this.toggleTokenSetup());
+    saveTokenBtn.addEventListener('click', () => this.saveToken());
+    
+    // Update token button status
+    this.updateTokenStatus();
+  }
+
+  handleFileSelect(file) {
+    if (file.type !== 'application/pdf') {
+      this.showError('Please select a PDF file.');
+      return;
+    }
+
+    if (file.size > 50 * 1024 * 1024) { // 50MB limit
+      this.showError('File is too large. Maximum size is 50MB.');
+      return;
+    }
+
+    this.selectedFile = file;
+    const fileInfo = document.getElementById('file-info');
+    fileInfo.innerHTML = `
+      <strong>Selected:</strong> ${file.name}<br>
+      <strong>Size:</strong> ${(file.size / 1024 / 1024).toFixed(2)} MB
+    `;
+    fileInfo.classList.remove('hidden');
+    
+    document.getElementById('upload-btn').disabled = false;
+  }
+
+  async uploadFile() {
+    if (!this.selectedFile || !this.currentEntry) {
+      this.showError('No file selected or no current entry.');
+      return;
+    }
+
+    const uploadBtn = document.getElementById('upload-btn');
+    const originalText = uploadBtn.textContent;
+    uploadBtn.innerHTML = '<div class="loading"></div>Uploading...';
+    uploadBtn.disabled = true;
+
+    try {
+      await this.uploadToGitHub(this.selectedFile, this.currentEntry.bibkey);
+      
+      this.showSuccess(`File "${this.selectedFile.name}" successfully uploaded as "${this.currentEntry.bibkey}.pdf"`);
+      
+      // Clear the selected file
+      this.selectedFile = null;
+      document.getElementById('file-info').classList.add('hidden');
+      document.getElementById('file-input').value = '';
+      
+    } catch (error) {
+      this.showError('Upload failed: ' + error.message);
+    } finally {
+      uploadBtn.textContent = originalText;
+      uploadBtn.disabled = true;
+    }
+  }
+
+  async uploadToGitHub(file, bibkey) {
+    // GitHub API configuration
+    const GITHUB_TOKEN = this.getGitHubToken();
+    const REPO_OWNER = 'kilianrouge';
+    const REPO_NAME = 'kilianrouge.github.io';
+    const FILE_PATH = `files/findapdf/PDFs/${bibkey}.pdf`;
+
+    if (!GITHUB_TOKEN) {
+      throw new Error('GitHub token not configured. Please click "Setup Token" to configure authentication.');
+    }
+
+    // Convert file to base64
+    const fileContent = await this.fileToBase64(file);
+    
+    // Check if file already exists
+    let sha = null;
+    try {
+      const existingFile = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
+        headers: {
+          'Authorization': `token ${GITHUB_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      
+      if (existingFile.ok) {
+        const data = await existingFile.json();
+        sha = data.sha; // Need SHA to update existing file
+      }
+    } catch (error) {
+      // File doesn't exist, which is fine for new uploads
+    }
+
+    // Create or update file via GitHub API
+    const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `Add PDF for ${bibkey}`,
+        content: fileContent,
+        ...(sha && { sha }) // Include SHA if updating existing file
+      })
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'GitHub API request failed');
+    }
+
+    return await response.json();
+  }
+
+  async fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        // Remove the data:application/pdf;base64, prefix
+        const base64 = reader.result.split(',')[1];
+        resolve(base64);
+      };
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  getGitHubToken() {
+    return localStorage.getItem('github_token');
+  }
+
+  toggleTokenSetup() {
+    const tokenSetup = document.getElementById('token-setup');
+    const isHidden = tokenSetup.classList.contains('hidden');
+    
+    if (isHidden) {
+      tokenSetup.classList.remove('hidden');
+    } else {
+      tokenSetup.classList.add('hidden');
+    }
+  }
+
+  async saveToken() {
+    const tokenInput = document.getElementById('token-input');
+    const token = tokenInput.value.trim();
+    
+    if (!token) {
+      this.showTokenStatus('Please enter a valid token', 'error');
+      return;
+    }
+
+    // Test the token by making a simple API call
+    try {
+      const response = await fetch('https://api.github.com/user', {
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+        localStorage.setItem('github_token', token);
+        tokenInput.value = '';
+        this.showTokenStatus(`Token saved successfully! Authenticated as: ${user.login}`, 'success');
+        this.updateTokenStatus();
+        
+        // Hide setup after successful save
+        setTimeout(() => {
+          document.getElementById('token-setup').classList.add('hidden');
+        }, 2000);
+      } else {
+        throw new Error('Invalid token or insufficient permissions');
+      }
+    } catch (error) {
+      this.showTokenStatus('Token validation failed: ' + error.message, 'error');
+    }
+  }
+
+  updateTokenStatus() {
+    const tokenBtn = document.getElementById('token-btn');
+    const hasToken = !!this.getGitHubToken();
+    
+    if (hasToken) {
+      tokenBtn.innerHTML = '✅ Token Configured';
+      tokenBtn.style.background = '#27ae60';
+    } else {
+      tokenBtn.innerHTML = '⚙️ Setup Token';
+      tokenBtn.style.background = '#e74c3c';
+    }
+  }
+
+  showTokenStatus(message, type) {
+    const statusDiv = document.getElementById('token-status');
+    const className = type === 'success' ? 'success' : 'error';
+    statusDiv.innerHTML = `<div class="${className}" style="margin-top: 0.5rem;">${message}</div>`;
+    
+    // Clear after 5 seconds
+    setTimeout(() => {
+      statusDiv.innerHTML = '';
+    }, 5000);
+  }
+
+  getNextEntry() {
+    // Remove current assignment to get a new one
+    const storage = localStorage.getItem('findthepdf_assignments') || '{}';
+    const assignments = JSON.parse(storage);
+    delete assignments[this.userFingerprint];
+    localStorage.setItem('findthepdf_assignments', JSON.stringify(assignments));
+
+    // Clear current state
+    this.selectedFile = null;
+    document.getElementById('file-info').classList.add('hidden');
+    document.getElementById('file-input').value = '';
+    document.getElementById('upload-btn').disabled = true;
+    document.getElementById('messages').innerHTML = '';
+
+    // Assign new entry
+    this.assignEntry();
+  }
+
+  showError(message) {
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.innerHTML = `<div class="error">${message}</div>`;
+  }
+
+  showSuccess(message) {
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.innerHTML = `<div class="success">${message}</div>`;
+  }
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  new FindThePDF();
+});
+</script>
