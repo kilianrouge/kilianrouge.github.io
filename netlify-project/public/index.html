@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find the PDF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Find the PDF</h1>
+    <div id="entry-card" class="entry-card">
+      <div class="entry-title" id="entry-title"></div>
+      <div class="entry-author" id="entry-author"></div>
+      <div class="entry-date" id="entry-date"></div>
+      <div><a href="#" id="entry-doi" class="entry-doi" target="_blank">View DOI</a> <span class="bibkey" id="entry-bibkey"></span></div>
+    </div>
+    <div class="upload-area" id="upload-area">
+      <input type="file" id="file-input" accept=".pdf" />
+      <div class="upload-text"><strong>Drag and drop a PDF file here</strong><br>or <strong>click to browse</strong></div>
+      <div id="file-info" class="file-info hidden"></div>
+    </div>
+    <div id="messages"></div>
+    <div class="buttons-container">
+      <button id="upload-btn" class="btn" disabled>Upload PDF</button>
+      <button id="next-btn" class="btn">Next Paper</button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "findthepdf-netlify",
+  "version": "1.0.0",
+  "description": "Netlify project for collecting PDFs via drag-and-drop, assigning bib entries per IP.",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "dependencies": {
+  "@netlify/functions": "^4.0.0",
+  "express": "^4.18.2",
+  "multer": "^1.4.5-lts.1",
+  "cors": "^2.8.5"
+  }
+}
