@@ -269,54 +269,118 @@ class FindThePDF {
 
   async init() {
     try {
+      console.log('Initializing Find the PDF...');
       await this.loadBibFile();
+      console.log('Bibliography loaded successfully');
       this.assignEntry();
+      console.log('Entry assigned successfully');
       this.setupEventListeners();
+      console.log('Event listeners setup complete');
       document.getElementById('loading').classList.add('hidden');
       document.getElementById('main-content').classList.remove('hidden');
+      console.log('UI updated - page ready');
     } catch (error) {
-      this.showError('Failed to load bibliography data: ' + error.message);
+      console.error('Initialization failed:', error);
+      document.getElementById('loading').classList.add('hidden');
+      document.getElementById('main-content').classList.remove('hidden');
+      this.showError('Failed to load bibliography data: ' + error.message + '. Check browser console for details.');
     }
   }
 
   async loadBibFile() {
-    try {
-      const response = await fetch('/files/findapdf/findapdf_tofind.bib');
-      if (!response.ok) throw new Error('Failed to load bibliography file');
-      
-      const bibText = await response.text();
-      this.bibEntries = this.parseBibTeX(bibText);
-    } catch (error) {
-      throw error;
+    console.log('Starting bibliography file loading...');
+    
+    // Try multiple possible paths for the bibliography file
+    const possiblePaths = [
+      'files/findapdf/findapdf_tofind.bib',  // Relative path
+      '/files/findapdf/findapdf_tofind.bib', // Absolute path from root
+      './files/findapdf/findapdf_tofind.bib', // Relative from current directory
+      '../files/findapdf/findapdf_tofind.bib' // Up one directory
+    ];
+    
+    let bibText = null;
+    let lastError = null;
+    
+    for (const path of possiblePaths) {
+      try {
+        console.log(`Attempting to load from: ${path}`);
+        const response = await fetch(path);
+        console.log(`Response status: ${response.status} ${response.statusText}`);
+        
+        if (response.ok) {
+          bibText = await response.text();
+          console.log(`Successfully loaded ${bibText.length} characters from: ${path}`);
+          break;
+        } else {
+          console.warn(`Failed to load from ${path}: ${response.status} ${response.statusText}`);
+        }
+      } catch (error) {
+        console.warn(`Error loading from ${path}:`, error);
+        lastError = error;
+      }
+    }
+    
+    if (!bibText) {
+      console.error('Failed to load bibliography from any path');
+      throw new Error(`Could not load bibliography file. Tried paths: ${possiblePaths.join(', ')}. Last error: ${lastError?.message || 'Unknown'}`);
+    }
+    
+    console.log('Parsing bibliography entries...');
+    this.bibEntries = this.parseBibTeX(bibText);
+    console.log(`Successfully parsed ${this.bibEntries.length} bibliography entries`);
+    
+    if (this.bibEntries.length === 0) {
+      throw new Error('No valid bibliography entries found in the file');
     }
   }
 
   parseBibTeX(bibText) {
+    console.log('Starting BibTeX parsing...');
     const entries = [];
-    const entryRegex = /@(\w+)\{([^,]+),([^}]+)\}/gs;
-    let match;
-
-    while ((match = entryRegex.exec(bibText)) !== null) {
-      const [, type, bibkey, content] = match;
-      
-      const entry = {
-        type: type,
-        bibkey: bibkey.trim(),
-        raw: match[0]
-      };
-
-      // Parse individual fields
-      const fieldRegex = /(\w+)\s*=\s*\{([^}]+)\}/g;
-      let fieldMatch;
-      
-      while ((fieldMatch = fieldRegex.exec(content)) !== null) {
-        const [, field, value] = fieldMatch;
-        entry[field.toLowerCase()] = value.trim();
+    
+    // Split entries by @ at the beginning of lines, but be more careful about it
+    const entryBlocks = bibText.split(/(?=^@\w+\{)/gm).filter(block => block.trim().length > 0);
+    console.log(`Found ${entryBlocks.length} potential entry blocks`);
+    
+    entryBlocks.forEach((block, index) => {
+      try {
+        // Extract entry type and key from the first line
+        const headerMatch = block.match(/^@(\w+)\{([^,\s]+),/m);
+        if (!headerMatch) {
+          console.log(`Skipping block ${index}: No valid header found`);
+          return;
+        }
+        
+        const [, type, bibkey] = headerMatch;
+        const entry = {
+          type: type.toLowerCase(),
+          bibkey: bibkey.trim(),
+          raw: block.substring(0, Math.min(500, block.length)) + '...' // Truncate for storage
+        };
+        
+        // Extract fields more robustly - handle nested braces
+        const fieldPattern = /(\w+)\s*=\s*\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g;
+        let fieldMatch;
+        
+        while ((fieldMatch = fieldPattern.exec(block)) !== null) {
+          const [, field, value] = fieldMatch;
+          entry[field.toLowerCase()] = value.trim();
+        }
+        
+        // Ensure we have essential fields
+        if (entry.title) {
+          entries.push(entry);
+          console.log(`✓ Parsed entry: ${bibkey} - "${entry.title.substring(0, 50)}..."`);
+        } else {
+          console.warn(`⚠ Skipping entry ${bibkey}: No title found`);
+        }
+        
+      } catch (error) {
+        console.warn(`Error parsing entry block ${index}:`, error);
       }
-
-      entries.push(entry);
-    }
-
+    });
+    
+    console.log(`Successfully parsed ${entries.length} valid entries out of ${entryBlocks.length} blocks`);
     return entries;
   }
 
