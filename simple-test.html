@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple BibTeX Test</title>
+</head>
+<body>
+    <h1>Simple BibTeX Test</h1>
+    <button onclick="testLoad()">Test Load BibTeX</button>
+    <div id="output" style="margin-top: 20px; padding: 20px; background: #f0f0f0;"></div>
+
+    <script>
+    async function testLoad() {
+        const output = document.getElementById('output');
+        output.innerHTML = 'Testing...';
+        
+        try {
+            console.log('Starting test...');
+            const response = await fetch('files/findapdf/findapdf_tofind.bib');
+            console.log('Response:', response.status, response.statusText);
+            
+            if (response.ok) {
+                const text = await response.text();
+                console.log('File loaded, length:', text.length);
+                
+                // Show first few lines
+                const lines = text.split('\n').slice(0, 10);
+                output.innerHTML = `
+                    <h3>SUCCESS!</h3>
+                    <p>File size: ${text.length} characters</p>
+                    <p>First 10 lines:</p>
+                    <pre style="background: white; padding: 10px; overflow-x: auto; font-size: 12px;">${lines.join('\n')}</pre>
+                `;
+            } else {
+                output.innerHTML = `<h3>FAILED</h3><p>Status: ${response.status} ${response.statusText}</p>`;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            output.innerHTML = `<h3>ERROR</h3><p>${error.message}</p>`;
+        }
+    }
+    </script>
+</body>
+</html>
