@@ -22,4 +22,4 @@ Navigating sobriety requires adressing not just economic theory, but the distrib
 <object data="{{ site.url }}/files/outreach/251127_ROUGE_SobrLyon.pdf" type="application/pdf" width="100%">
   <p>Your browser does not support PDFs. Please download the PDF to view it: <a href="{{ site.url }}/files/outreach/251127_ROUGE_SobrLyon.pdf">Download PDF</a>.</p>
 </object>
-[Download my CV]( {{ site.url }}/files/CV_Kilianrouge_Fr.pdf )
+[Download the presentation]( {{ site.url }}/files/outreach/251127_ROUGE_SobrLyon.pdf )
