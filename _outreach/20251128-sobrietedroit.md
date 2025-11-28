@@ -17,7 +17,7 @@ What happens to our economy when we intentionally consume less? This is the ques
 
 
 I also tried to pinpoint how our toolbox as economists will need to evolve to tackle these issues. Markets don't naturally coordinate what we *should* produce or how to democratize it. We need parallel accounting systems coupled with economic models to see the real environmental feedback loops.
-Navigating sobriety requires adressing not just economic theory, but the distributed effects, sectoral dependencies, technological lock-ins, and long-term risks that simplified models struggle to capture.
+Navigating sufficiency requires adressing not just economic theory, but the distributed effects, sectoral dependencies, technological lock-ins, and long-term risks that simplified models struggle to capture.
 
 <object data="{{ site.url }}/files/outreach/251127_ROUGE_SobrLyon.pdf" type="application/pdf" width="100%">
   <p>Your browser does not support PDFs. Please download the PDF to view it: <a href="{{ site.url }}/files/outreach/251127_ROUGE_SobrLyon.pdf">Download PDF</a>.</p>
