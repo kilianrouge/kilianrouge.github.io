@@ -7,6 +7,8 @@ venue: "AgroParisTech"
 location: "Palaiseau, France"
 ---
 
+Ce cours de'introduction à la macroéconomie écologique et aux enjeux de sobriété est destiné aux élèves des cursus SPES et GTES de Master 2 d'AgroParisTech.
+
 ## Contexte et objectifs du cours
 
 Une littérature de plus en plus nourrie démontre que les développements technologiques, la circularité ou la substitution ne permettront pas de concilier un imaginaire économique et politique d'accumulation et de progrès avec la limitation du réchauffement climatique ou la protection de la biodiversité. Les mesures d'atténuation côté offre visent à mieux utiliser les ressources énergétiques et matérielles pour un service donné. Pourtant, les inévitables effets rebonds, l'inertie des investissements technologiques ou l'incompressibilité des empreintes de certains secteurs stratégiques sont autant de raisons expliquant l'insuffisance de celles-ci. En plus de diminuer l'empreinte environnementale de notre consommation, il est donc nécessaire d'envisager une limitation de celle-ci.
@@ -24,10 +26,10 @@ Mais imaginer que ces potentiels soient atteints, et donc qu'un grand nombre de 
 *Le cours s'adresse à un public sensibilisé aux problématiques environnementales n'ayant pas forcément de bagage économique.*
 
 
-<object data="{{ site.url }}/files/CV_Kilianrouge_Fr.pdf" type="application/pdf" width="100%">
+<object data="{{ site.url }}/files/teaching_contents/2026_ECOVIV_macroecolo/260206_ECOVIV_Macroecolo.pdf" type="application/pdf" width="100%">
   <p>Your browser does not support PDFs. Please download the PDF to view it: <a href="{{ site.url }}/files/teaching_contents/2026_ECOVIV_macroecolo/260206_ECOVIV_Macroecolo.pdf">Download PDF</a>.</p>
 </object>
-[Download my CV]( {{ site.url }}/files/teaching_contents/2026_ECOVIV_macroecolo/260206_ECOVIV_Macroecolo.pdf )
+[Télécharger les slides]( {{ site.url }}/files/teaching_contents/2026_ECOVIV_macroecolo/260206_ECOVIV_Macroecolo.pdf )
 
 ## Contact
 
