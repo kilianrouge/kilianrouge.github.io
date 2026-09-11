@@ -1,0 +1,249 @@
+/* ==========================================================================
+   RESEARCH PAGE
+   ========================================================================== */
+
+.research-lead {
+  margin: 1.5em 0 2em;
+  padding: 1.25em 1.5em;
+  border-left: 4px solid $link-color;
+  border-radius: 0 $border-radius $border-radius 0;
+  background: mix(#fff, $link-color, 94%);
+  font-size: $type-size-4;
+  line-height: 1.5;
+  color: mix(#000, $text-color, 15%);
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 0.6em;
+  }
+}
+
+.research-section-intro {
+  font-size: $type-size-5;
+  color: mix(#fff, $text-color, 15%);
+}
+
+/* Tags
+   ========================================================================== */
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin: 0.75em 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  margin: 0; /* override base `ul li` bottom margin */
+  padding: 0.25em 0.7em;
+  border: 1px solid mix(#000, $border-color, 6%);
+  border-radius: 2em;
+  background: mix(#fff, $lighter-gray, 45%);
+  color: mix(#000, $text-color, 10%);
+  font-size: $type-size-7;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.tag--method {
+  border-color: mix(#fff, $info-color, 55%);
+  background: mix(#fff, $info-color, 90%);
+  color: mix(#000, $info-color, 45%);
+}
+
+.tag--draft {
+  border-color: mix(#fff, $gray, 45%);
+  background: mix(#fff, $gray, 88%);
+  color: mix(#000, $gray, 35%);
+}
+
+.tag--review {
+  border-color: mix(#fff, $warning-color, 55%);
+  background: mix(#fff, $warning-color, 90%);
+  color: mix(#000, $warning-color, 45%);
+}
+
+.tag--presented {
+  border-color: mix(#fff, $success-color, 50%);
+  background: mix(#fff, $success-color, 90%);
+  color: mix(#000, $success-color, 50%);
+}
+
+.tag--new {
+  border-color: mix(#fff, #8e6bbf, 55%);
+  background: mix(#fff, #8e6bbf, 92%);
+  color: mix(#000, #8e6bbf, 25%);
+}
+
+.tag--people {
+  border-color: transparent;
+  background: transparent;
+  padding-left: 0;
+  color: mix(#fff, $text-color, 25%);
+  font-weight: 500;
+
+  &::before {
+    content: "\f0c0"; /* users */
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.45em;
+    font-size: 0.9em;
+    opacity: 0.65;
+  }
+}
+
+/* Structural dimensions grid
+   ========================================================================== */
+
+.structure-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75em;
+  margin: 1.5em 0 2em;
+  padding: 0;
+  list-style: none;
+
+  @include breakpoint($medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint($large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  li {
+    margin: 0;
+    padding: 0.85em 1em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background: mix(#fff, $background-color, 60%);
+    font-size: 0.875em;
+    line-height: 1.5;
+    transition: $global-transition;
+
+    &:hover {
+      border-color: mix(#fff, $link-color, 55%);
+      box-shadow: 0 4px 12px rgba($gray, 0.14);
+    }
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 0.2em;
+    color: mix(#000, $text-color, 20%);
+    font-size: 0.85em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  span {
+    color: mix(#fff, $text-color, 15%);
+  }
+}
+
+/* Macroeconomic channels
+   ========================================================================== */
+
+.channel-list {
+  margin: 1.5em 0 2em;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    margin: 0 0 0.9em;
+    padding: 0 0 0 1.6em;
+    font-size: $type-size-5;
+    line-height: 1.55;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 0;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background: $link-color;
+      opacity: 0.55;
+    }
+  }
+
+  strong {
+    color: mix(#000, $text-color, 20%);
+  }
+}
+
+/* Project cards
+   ========================================================================== */
+
+.project-list {
+  margin: 1.5em 0 2.5em;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card {
+  position: relative;
+  margin: 0 0 1.1em;
+  padding: 1.15em 1.35em 1.15em 1.35em;
+  border: 1px solid $border-color;
+  border-left: 3px solid mix(#fff, $link-color, 40%);
+  border-radius: $border-radius;
+  background: mix(#fff, $background-color, 80%);
+  box-shadow: 0 1px 2px rgba($gray, 0.12);
+  transition: $global-transition;
+
+  &:hover {
+    border-color: mix(#000, $border-color, 10%);
+    border-left-color: $link-color;
+    box-shadow: 0 6px 16px rgba($gray, 0.16);
+  }
+
+  .project-card__title {
+    margin: 0;
+    font-size: $type-size-4;
+    font-weight: 600;
+    line-height: 1.35;
+    color: mix(#000, $text-color, 20%);
+  }
+
+  .project-card__desc {
+    margin: 0.5em 0 0;
+    font-size: $type-size-5;
+    line-height: 1.55;
+    color: mix(#fff, $text-color, 15%);
+  }
+
+  @include breakpoint($medium) {
+    padding: 1.25em 1.5em;
+  }
+}
+
+.project-card--side {
+  border-left-color: mix(#fff, $gray, 40%);
+
+  &:hover {
+    border-left-color: $gray;
+  }
+
+  .project-card__title {
+    font-size: $type-size-5;
+  }
+
+  .project-card__ref {
+    margin: 0.5em 0 0;
+    font-size: $type-size-6;
+    line-height: 1.6;
+    color: mix(#fff, $text-color, 25%);
+  }
+}
