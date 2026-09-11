@@ -14,12 +14,12 @@ The main concerns with low-demand transitions are its macroeconomic consequences
 
 <nav class="section-rail" aria-label="Page sections">
   <a class="section-rail__item" href="#context">
-    <span class="section-rail__label">Framing</span>
     <span class="section-rail__dot" aria-hidden="true"></span>
+    <span class="section-rail__label">Framing</span>
   </a>
   <a class="section-rail__item" href="#projects">
-    <span class="section-rail__label">Projects</span>
     <span class="section-rail__dot" aria-hidden="true"></span>
+    <span class="section-rail__label">Projects</span>
   </a>
 </nav>
 
@@ -123,7 +123,10 @@ Looking at all these dimensions coherently raises key questions for low-demand t
         <li class="tag tag--people">with Cyril Chavannat</li>
       </ul>
     </div>
-    <p class="project-card__desc">How physical and monetary dependencies constrain the response of peripheral countries to sufficiency transitions in the core.</p>
+    <div class="project-card__body">
+      <p class="project-card__desc">How physical and monetary dependencies constrain the response of peripheral countries to sufficiency transitions in the core.</p>
+      <p class="project-card__actions"><a class="deck-link" href="/files/research/poster_UE.pdf">ICEM2026 Poster</a></p>
+    </div>
   </li>
   <li class="project-card">
     <div class="project-card__head">

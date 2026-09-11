@@ -36,25 +36,25 @@ $research-faint : mix(#fff, $text-color, 55%);
 /* Fixed dot rail marking the two parts of the page; hidden where there is no
    room for it beside the content column. */
 .section-rail {
-  display: none;
-
-  @include breakpoint($large) {
-    position: fixed;
-    top: 50%;
-    right: 1.75em;
-    z-index: 15;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    transform: translateY(-50%);
-  }
+  position: fixed;
+  left: 50%;
+  bottom: 1.25em;
+  z-index: 15;
+  display: flex;
+  gap: 1.4em;
+  padding: 0.5em 1.15em;
+  border-radius: 2em;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 8px rgba($gray, 0.2);
+  transform: translateX(-50%);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
 }
 
 .section-rail__item {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 0.65em;
+  gap: 0.55em;
   text-decoration: none;
 
   &:hover,
@@ -102,8 +102,7 @@ $research-faint : mix(#fff, $text-color, 55%);
 /* Tags
    ========================================================================== */
 
-/* Colour-coded, but as text rather than chips: the hue carries the status,
-   the middots keep the run quiet. */
+/* Colour-coded chips: a tint carries the status without shouting. */
 $tag-method    : #2b6e85;
 $tag-draft     : #6b757c;
 $tag-review    : #96601a;
@@ -113,7 +112,8 @@ $tag-new       : #5f4f96;
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0.5em 0 0;
+  gap: 0.4em;
+  margin: 0.6em 0 0;
   padding: 0;
   list-style: none;
 }
@@ -122,32 +122,36 @@ $tag-new       : #5f4f96;
   display: inline-flex;
   align-items: center;
   margin: 0; /* override base `ul li` bottom margin */
-  padding: 0;
-  color: $research-muted;
+  padding: 0.25em 0.7em;
+  border-radius: $border-radius;
+  background: mix(#fff, $tag-draft, 88%);
+  color: mix(#000, $tag-draft, 20%);
   font-size: $type-size-7;
   letter-spacing: 0.02em;
   line-height: 1.6;
+  white-space: nowrap;
+}
 
-  &:not(:last-child)::after {
-    content: "\00b7";
-    margin: 0 0.55em;
-    color: $research-faint;
+/* Text is darkened 20% against an 88% tint so every pairing clears 4.5:1. */
+@each $name, $hue in (
+  "method"    : $tag-method,
+  "draft"     : $tag-draft,
+  "review"    : $tag-review,
+  "presented" : $tag-presented,
+  "new"       : $tag-new
+) {
+  .tag--#{$name} {
+    background: mix(#fff, $hue, 88%);
+    color: mix(#000, $hue, 20%);
   }
 }
 
-.tag--method    { color: $tag-method; }
-.tag--draft     { color: $tag-draft; }
-.tag--review    { color: $tag-review; }
-.tag--presented { color: $tag-presented; }
-.tag--new       { color: $tag-new; }
-
+/* co-authors stay outside the chip system */
 .tag--people {
+  padding-left: 0;
+  background: transparent;
+  color: $research-muted;
   font-style: italic;
-}
-
-/* the separator stays neutral whatever the tag colour */
-.tag:not(:last-child)::after {
-  color: $research-faint;
 }
 
 /* Structural dimensions grid
@@ -156,7 +160,7 @@ $tag-new       : #5f4f96;
 .structure-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1em 2.5em;
+  gap: 0.75em;
   margin: 1.5em 0 2em;
   padding: 0;
   list-style: none;
@@ -165,11 +169,25 @@ $tag-new       : #5f4f96;
     grid-template-columns: repeat(2, 1fr);
   }
 
+  @include breakpoint($large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   li {
     margin: 0;
-    padding: 0;
+    padding: 0.85em 1em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background: mix(#fff, $background-color, 60%);
     font-size: $type-size-6;
     line-height: 1.55;
+    transition: $global-transition;
+
+    &:hover {
+      border-color: mix(#fff, $link-color, 55%);
+      box-shadow: 0 4px 12px rgba($gray, 0.14);
+      transform: translateY(-2px);
+    }
   }
 
   strong {

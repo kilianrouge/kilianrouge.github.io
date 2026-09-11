@@ -399,3 +399,40 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+/*
+   Inline "more on…" link
+   ========================================================================== */
+
+/* Flat tinted pill: colour carries it, no border or shadow. */
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em 0.9em;
+  border-radius: 2em;
+  background: mix(#fff, $link-color, 90%);
+  color: mix(#000, $link-color, 35%); /* darkened for contrast on the tint */
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  text-decoration: none;
+  transition: $global-transition;
+
+  &::after {
+    content: "\f061"; /* arrow-right */
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 0.55em;
+    font-size: 0.8em;
+    opacity: 0.8;
+  }
+
+  &:hover,
+  &:focus {
+    background: mix(#fff, $link-color, 78%);
+    color: mix(#000, $link-color, 45%);
+    text-decoration: none;
+  }
+}
