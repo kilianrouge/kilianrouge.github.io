@@ -12,6 +12,19 @@ redirect_from:
 The main concerns with low-demand transitions are its macroeconomic consequences; think unemployment, inequality, deficits, monetary instabilityn. The defining approach of my PhD is to consider them not as separate obstacles but as facets of one process of **directed structural change**, constrained by ecological limits and by the requirement that needs be met.
 </div>
 
+<nav class="research-switch" aria-label="Research sections">
+  <a class="research-switch__btn" href="#context" data-panel="context">
+    <span class="research-switch__label">The framing</span>
+    <span class="research-switch__sub">Why structural change</span>
+  </a>
+  <a class="research-switch__btn" href="#projects" data-panel="projects">
+    <span class="research-switch__label">The projects</span>
+    <span class="research-switch__sub">5 PhD papers, 2 side projects</span>
+  </a>
+</nav>
+
+<section id="context" class="research-panel" markdown="1">
+
 ## Where this starts: ecological sufficiency
 
 Keeping the **1.5° objective** alive takes more than **improving the efficiency** of what we consume: rebound effects, technological lock-in and cost all get in the way. **Sufficiency** (that we broadly define as reducing the production and consumption of certain goods and services as a mitigation strategy) is the complementary approach. Research on it has largely asked three questions: what it looks like, whether it works, and how we get there.
@@ -49,11 +62,18 @@ Looking at all these dimensions coherently raises key questions for low-demand t
 
 > Do expanding sectors generate enough jobs to absorb the labour released by contracting ones? Do their productivity dynamics support a real wage consistent with meeting essential needs? Does their investment find financing compatible with the savings of the system? Does the public balance hold under an enlarged role for public financing?
 
+<p class="research-jump"><a href="#projects" data-panel="projects">See the projects this framing leads to <span aria-hidden="true">&rarr;</span></a></p>
+
+</section>
+
+<section id="projects" class="research-panel" markdown="1">
+
 ## Research projects
 
 <ul class="project-list">
   <li class="project-card">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">01</span>
       <h3 class="project-card__title">Economic structures for low-demand futures: a systematic mapping</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Systematic review</li>
@@ -65,6 +85,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
   <li class="project-card">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">02</span>
       <h3 class="project-card__title">Quality over Quantity: the macroeconomic impacts of product longevity as a sufficiency lever</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Stylised SFC model</li>
@@ -75,6 +96,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
   <li class="project-card">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">03</span>
       <h3 class="project-card__title">Sufficiency-enabling infrastructure and structural change under a carbon budget</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Multisector growth model</li>
@@ -85,6 +107,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
   <li class="project-card">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">04</span>
       <h3 class="project-card__title">Structural change through structural dependencies: a core–periphery model of sufficiency transitions</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Extended stylised IO</li>
@@ -96,6 +119,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
   <li class="project-card">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">05</span>
       <h3 class="project-card__title">Occupational reallocation constraints in demand-side mitigation: French sufficiency pathways</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Agent-based model</li>
@@ -111,10 +135,12 @@ Looking at all these dimensions coherently raises key questions for low-demand t
 <ul class="project-list">
   <li class="project-card project-card--side">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">01</span>
       <h3 class="project-card__title"><a href="https://www.neep-poverty.org/wp-content/uploads/2026/06/6.4_Democratising-the-Macroeconomic-Modelling-Toolbox.pdf">Democratising the macroeconomic modelling toolbox</a></h3>
       <ul class="tag-row">
         <li class="tag tag--method">Policy profile</li>
         <li class="tag tag--presented">June 2026</li>
+        <li class="tag tag--people">with Simone D'Alessandro and Matthieu Bordenave</li>
       </ul>
     </div>
     <div class="project-card__body">
@@ -124,6 +150,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
   <li class="project-card project-card--side">
     <div class="project-card__head">
+      <span class="project-card__num" aria-hidden="true">02</span>
       <h3 class="project-card__title">Penser la macroéconomie des transitions de sobriété comme un changement structurel</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Book chapter</li>
@@ -138,3 +165,55 @@ Looking at all these dimensions coherently raises key questions for low-demand t
 </ul>
 
 _Stay tuned for updates on my research!_
+
+<p class="research-jump"><a href="#context" data-panel="context"><span aria-hidden="true">&larr;</span> Back to the framing</a></p>
+
+</section>
+
+<script>
+(function () {
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.research-panel'));
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.research-switch__btn'));
+  if (!panels.length) return;
+  document.documentElement.classList.add('has-research-switch');
+
+  function show(name, scroll) {
+    panels.forEach(function (p) { p.classList.toggle('is-active', p.id === name); });
+    buttons.forEach(function (b) {
+      var on = b.getAttribute('data-panel') === name;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+    if (scroll) {
+      var nav = document.querySelector('.research-switch');
+      if (nav) nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function panelFor(hash) {
+    if (!hash) return null;
+    var el;
+    try { el = document.querySelector(hash); } catch (e) { return null; }
+    if (!el) return null;
+    var p = el.closest('.research-panel');
+    return p ? p.id : null;
+  }
+
+  show(panelFor(window.location.hash) || 'context', false);
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var name = a.getAttribute('data-panel') || panelFor(a.hash);
+    if (!name) return;
+    e.preventDefault();
+    history.replaceState(null, '', a.getAttribute('href'));
+    show(name, true);
+  });
+
+  window.addEventListener('hashchange', function () {
+    var name = panelFor(window.location.hash);
+    if (name) show(name, true);
+  });
+})();
+</script>
