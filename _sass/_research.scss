@@ -29,6 +29,14 @@
 /* Tags
    ========================================================================== */
 
+/* Pill palette: methods read as tinted outlines, status as filled chips.
+   Filled tones are deep enough to carry white text at 11px. */
+$tag-method    : #1f7f9e;
+$tag-draft     : #5b676f;
+$tag-review    : #a76a12;
+$tag-presented : #2f7d4f;
+$tag-new       : #6a4bb0;
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -42,10 +50,10 @@
   display: inline-flex;
   align-items: center;
   margin: 0; /* override base `ul li` bottom margin */
-  padding: 0.25em 0.7em;
-  border: 1px solid mix(#000, $border-color, 6%);
+  padding: 0.28em 0.75em;
+  border: 1px solid transparent;
   border-radius: 2em;
-  background: mix(#fff, $lighter-gray, 45%);
+  background: mix(#fff, $lighter-gray, 35%);
   color: mix(#000, $text-color, 10%);
   font-size: $type-size-7;
   font-weight: 600;
@@ -54,40 +62,30 @@
   white-space: nowrap;
 }
 
+/* method — tinted outline */
 .tag--method {
-  border-color: mix(#fff, $info-color, 55%);
-  background: mix(#fff, $info-color, 90%);
-  color: mix(#000, $info-color, 45%);
+  border-color: mix(#fff, $tag-method, 60%);
+  background: mix(#fff, $tag-method, 92%);
+  color: $tag-method;
 }
 
-.tag--draft {
-  border-color: mix(#fff, $gray, 45%);
-  background: mix(#fff, $gray, 88%);
-  color: mix(#000, $gray, 35%);
-}
-
-.tag--review {
-  border-color: mix(#fff, $warning-color, 55%);
-  background: mix(#fff, $warning-color, 90%);
-  color: mix(#000, $warning-color, 45%);
-}
-
-.tag--presented {
-  border-color: mix(#fff, $success-color, 50%);
-  background: mix(#fff, $success-color, 90%);
-  color: mix(#000, $success-color, 50%);
-}
-
+/* status — filled */
+.tag--draft,
+.tag--review,
+.tag--presented,
 .tag--new {
-  border-color: mix(#fff, #8e6bbf, 55%);
-  background: mix(#fff, #8e6bbf, 92%);
-  color: mix(#000, #8e6bbf, 25%);
+  color: #fff;
 }
 
+.tag--draft     { background: $tag-draft; }
+.tag--review    { background: $tag-review; }
+.tag--presented { background: $tag-presented; }
+.tag--new       { background: $tag-new; }
+
+/* co-authors — no chrome, just a marker */
 .tag--people {
-  border-color: transparent;
-  background: transparent;
   padding-left: 0;
+  background: transparent;
   color: mix(#fff, $text-color, 25%);
   font-weight: 500;
 
@@ -193,9 +191,12 @@
 }
 
 .project-card {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6em 1.75em;
+  align-items: start;
   margin: 0 0 1.1em;
-  padding: 1.15em 1.35em 1.15em 1.35em;
+  padding: 1.15em 1.35em;
   border: 1px solid $border-color;
   border-left: 3px solid mix(#fff, $link-color, 40%);
   border-radius: $border-radius;
@@ -209,22 +210,43 @@
     box-shadow: 0 6px 16px rgba($gray, 0.16);
   }
 
+  .project-card__head {
+    min-width: 0;
+  }
+
   .project-card__title {
     margin: 0;
     font-size: $type-size-4;
     font-weight: 600;
     line-height: 1.35;
     color: mix(#000, $text-color, 20%);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid mix(#fff, $link-color, 55%);
+
+      &:hover {
+        color: $link-color;
+        border-bottom-color: $link-color;
+      }
+    }
+  }
+
+  .project-card__body {
+    min-width: 0;
   }
 
   .project-card__desc {
-    margin: 0.5em 0 0;
+    margin: 0;
     font-size: $type-size-5;
     line-height: 1.55;
     color: mix(#fff, $text-color, 15%);
   }
 
-  @include breakpoint($medium) {
+  /* title and tags beside the description once there is room for two tracks */
+  @media (min-width: 48em) {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
     padding: 1.25em 1.5em;
   }
 }
@@ -241,7 +263,7 @@
   }
 
   .project-card__ref {
-    margin: 0.5em 0 0;
+    margin: 0.6em 0 0;
     font-size: $type-size-6;
     line-height: 1.6;
     color: mix(#fff, $text-color, 25%);

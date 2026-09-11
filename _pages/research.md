@@ -9,20 +9,14 @@ redirect_from:
 ---
 
 <div class="research-lead" markdown="1">
-My thesis asks a simple question with an inconvenient answer: **what has to change in the structure of an economy for a large, durable reduction in physical production and consumption to be viable?**
+**What has to change in the structure of an economy for a large, durable reduction in physical production and consumption to be viable?**
 
-The macroeconomic problems usually raised against low-demand transitions — unemployment, inequality, public deficits, monetary instability — are not separate obstacles. They are **facets of one and the same process: a directed structural change**, constrained by ecological limits and by the requirement that needs be met.
+The macroeconomic problems usually raised against low-demand transitions — unemployment, inequality, deficits, monetary instability — are not separate obstacles. They are facets of one process: **a directed structural change**, constrained by ecological limits and by the requirement that needs be met.
 </div>
 
 ## Where this starts: ecological sufficiency
 
-If we want to keep the **1.5° objective** alive, the dominant approach — **improving the efficiency of the goods and services we consume** — is **not enough**. Rebound effects, technological lock-in and the sheer cost of an efficiency-only transition all get in the way.
-
-**The complementary approach is sufficiency**: a reduction in the production and consumption of certain goods and services as a mitigation strategy in its own right. Research on it has largely answered three questions:
-
-- **What does it look like?** Which changes in production and consumption patterns are imaginable?
-- **Does it work?** What are the mitigation benefits, and the side effects?
-- **How do we get there?** Which policies, drivers and barriers?
+Keeping the **1.5° objective** alive takes more than **improving the efficiency** of what we consume: rebound effects, technological lock-in and cost all get in the way. **Sufficiency** — reducing the production and consumption of certain goods and services as a mitigation strategy in its own right — is the complementary approach. Research on it has largely asked three questions: what it looks like, whether it works, and how we get there.
 
 <p align="center">
   <img src="/images/blog/litreview_framework.svg" alt="Literature review framework" style="width: 100%; max-width: 800px;">
@@ -30,116 +24,118 @@ If we want to keep the **1.5° objective** alive, the dominant approach — **im
   <em>Figure 1: Sufficiency in the literature — a framework analysis</em>
 </p>
 
-Most of this work sits at the **microeconomic scale**: the nature and determinants of sufficiency practices, the conditions for their diffusion, the design of incentives and regulation. The objections that actually structure public and political debate, however, are **macroeconomic** — and that is where my work sits.
+Most of that work sits at the **microeconomic scale**. The objections that actually structure political debate are **macroeconomic** — and that is where my work sits.
 
-## The macroeconomic objections, and why they look like walls
-
-The commonplace is that any reduction in consumption sets off a vicious circle: less consumption → less production → fewer jobs → a wider public deficit → fewer public services → rising inequality → … . The literature gives this intuition serious content:
+## The objections, and why they look like walls
 
 <ul class="channel-list">
-  <li><strong>Employment and the productivity trap.</strong> Where labour productivity trends upward, output has to grow just to hold employment constant. A low-demand economy has to either shift production towards low-productivity-growth sectors (care, education, services) or spread a smaller volume of hours over more workers.</li>
-  <li><strong>Inequality and the financing of the social model.</strong> Tax receipts follow value added; funded pensions follow financial returns, themselves sensitive to growth expectations; non-market public services get relatively more expensive in any economy with differentiated productivity. Slower growth strains several pillars of redistribution at once.</li>
-  <li><strong>Monetary and financial stability.</strong> Weaker credit demand slows money creation and weakens bank balance sheets, while interest obligations push in the direction of continued expansion.</li>
-  <li><strong>Public finances and deflation.</strong> Falling receipts do not mechanically come with falling social spending or transition investment; unstabilised demand carries a deflationary risk.</li>
-  <li><strong>International spillovers.</strong> Lower demand in rich countries moves world commodity prices and exposes primary-exporting economies.</li>
+  <li><strong>The productivity trap.</strong> Where labour productivity trends upward, output must grow just to hold employment constant.</li>
+  <li><strong>Growth-dependent redistribution.</strong> Tax receipts follow value added, funded pensions follow financial returns, and non-market services get relatively more expensive wherever productivity is differentiated.</li>
+  <li><strong>Monetary and financial stability.</strong> Weaker credit demand slows money creation, while interest obligations push towards continued expansion.</li>
+  <li><strong>Public finances and deflation.</strong> Falling receipts do not come with falling social spending or transition investment.</li>
+  <li><strong>International spillovers.</strong> Lower demand in rich countries moves world prices and exposes primary-exporting economies.</li>
 </ul>
 
-Taken one by one, these channels paint a grim picture — a stack of structural obstacles that supplies ready-made arguments against any ambitious demand-side policy. But each of them is evaluated **at constant productive structure**, as the perturbation of a macroeconomic steady state by an exogenous demand shock. And they are **not independent**: the sectoral, distributive and institutional composition of a transition simultaneously determines its effects on employment, on distribution, on the budget balance, on innovation and on the external balance.
+Each of these is evaluated **at constant productive structure** — a steady state perturbed by an exogenous demand shock. And they are **not independent**: the sectoral, distributive and institutional composition of a transition determines its effects on employment, distribution, the budget and the external balance simultaneously.
 
 ## One process: directed structural change
 
 ### Structure is more than sectoral shares
 
-Following the structural change literature, I take **economic structure** to mean the long-run configuration of several interdependent dimensions:
+**Economic structure** here means the long-run configuration of several interdependent dimensions:
 
 <ul class="structure-grid">
-  <li><strong>Sectoral composition</strong><span>What is produced, and the input–output interdependencies that hold it together</span></li>
+  <li><strong>Sectoral composition</strong><span>What is produced, and the input–output links holding it together</span></li>
   <li><strong>Industrial organisation</strong><span>Firm size, market forms, business models</span></li>
   <li><strong>Technical change</strong><span>Its direction as much as its intensity</span></li>
   <li><strong>Employment structure</strong><span>Sectoral allocation, skills, working conditions</span></li>
   <li><strong>Trade specialisation</strong><span>Position in international value chains</span></li>
-  <li><strong>Income and wealth distribution</strong><span>Which in turn shapes the composition of demand</span></li>
-  <li><strong>Institutions</strong><span>Formal and informal rules governing access to resources, labour and finance</span></li>
+  <li><strong>Distribution</strong><span>Income and wealth — which shapes the composition of demand</span></li>
+  <li><strong>Institutions</strong><span>Rules governing access to resources, labour and finance</span></li>
 </ul>
 
-This broad reading is necessary for two reasons. Sufficiency affects **several of these dimensions at once**, and they do not follow mechanically from one another. And it requires thinking about the **emergence of new entities** — activities, organisational forms, legal rules — which makes the notion of equilibrium problematic.
+Sufficiency affects several of these at once, and they do not follow from one another. It also requires thinking about the **emergence of new entities** — activities, organisational forms, legal rules — which makes equilibrium a problematic notion.
 
 ### Sufficiency is not uniform degrowth
 
-A sufficiency transition is not an even contraction of every sector. Some sectors shrink (fast fashion, aviation, intensive livestock farming), others hold or expand (public transport, care, education, retrofitting, repair). They differ in energy intensity, labour-productivity dynamics, capital intensity, trade exposure and business models — so **the aggregate employment, distributional and emissions outcomes depend on which composition is actually realised**.
+Some sectors shrink (fast fashion, aviation, intensive livestock), others expand (public transport, care, education, retrofitting, repair). They differ in energy intensity, productivity dynamics, capital intensity and trade exposure, so **aggregate outcomes depend on which composition is realised**. Change also happens *within* sectors: goods built to last, smaller firms, more repair — shifts that aggregate classifications capture poorly. And it produces **winners and losers** across households, regions and firms; a transition that does not steer distribution either widens inequality or misses its environmental target.
 
-Qualitative change also happens *within* sectors. Producing goods that last longer, in smaller firms, with more repair and after-sales service, changes a sector's macroeconomic contribution — its skill demand, its business models, the functional composition of its jobs — in ways that aggregate sectoral classifications capture poorly.
+### Coherence only exists at the structural level
 
-Low-demand transitions will also produce **winners and losers**: households by position in the income and wealth distribution, regions by sectoral specialisation, firms by the modularity of their productive apparatus. A transition that does not steer distribution either widens inequality and loses its political footing, or misses its environmental target.
+The Pasinetti-style compatibility condition, applied to sufficiency, becomes a set of stability questions:
 
-### Coherence can only be stated at the structural level
+> Do expanding sectors generate enough jobs to absorb the labour released by contracting ones? Do their productivity dynamics support a real wage consistent with meeting essential needs? Does their investment find financing compatible with the savings of the system? Does the public balance hold under an enlarged role for public financing?
 
-This plurality of changes is only viable under an overall **coherence condition** — the compatibility, already central in Pasinetti, between the dynamics of the components and global macroeconomic constraints. Applied to sufficiency, it becomes a set of stability questions:
+None of these has an aggregate answer. Coherence can only be established where the chains between final demand, productive structure, employment and finance close.
 
-> Do the sectors expanding under the new demand vector generate enough jobs to absorb the labour released by the contracting ones? Do their productivity dynamics support a real wage consistent with consumption baskets that meet essential needs for everyone? Does the investment the expanding sectors require find financing compatible with the savings of the system? Does the public balance remain consistent with an enlarged role for public financing?
+### Positive versus directed structural change
 
-None of these questions has an answer at the aggregate level. Coherence can only be established where the transmission chains between final demand, productive structure, employment and finance close — that is, **at the structural level**.
-
-### Positive structural change, directed structural change
-
-The structural change literature endogenises sectoral composition through non-homothetic preferences, sectoral productivity differentials, input–output linkages or trade specialisation. It offers a **positive** reading: where an economy left to itself tends to go as it develops.
-
-Low-demand transitions pose a different question. It is no longer about describing where the economy heads spontaneously, but about identifying **which economic structures are compatible with the biophysical constraints of the transition and with decent need-satisfaction thresholds**. Structural change here is **directed**: a direction constrained by environmental and temporal limits, and a set of policy instruments to steer it. This view is beginning to spread in ecological macroeconomics, post-growth and integrated assessment — but it remains fragmented, and mitigation scenarios still mostly reduce it to exogenous sectoral trajectories.
+The structural change literature reads sectoral composition **positively**: where an economy left to itself tends to go. Low-demand transitions ask something else — **which structures are compatible with biophysical limits and decent need-satisfaction**, and how to get there. Structural change here is **directed**. The view is spreading in ecological macroeconomics, post-growth and integrated assessment, but remains fragmented; mitigation scenarios still mostly reduce it to exogenous sectoral trajectories.
 
 ## What the reframing changes
 
-**The question changes.** Not only which aggregate level of output is compatible with ecological limits, but which **structural compositions** are compatible with them while meeting needs — and which trajectories get us there.
+**The question.** Not which aggregate output level fits ecological limits, but which **structural compositions** do while meeting needs.
 
-**The logic of policy changes.** At constant structure, the macroeconomic consequences of sufficiency are effects to be *compensated*: compensation for displaced workers, support for affected households, repair of public balance sheets. As structural change, they are questions of *composition*, to be resolved by steering the sectoral, distributive, industrial, monetary and institutional dimensions together. Sufficiency policy stops being a policy of compensation and becomes **a policy of coordination**.
+**The policy logic.** At constant structure, macroeconomic consequences are effects to *compensate*. As structural change, they are questions of *composition*, steered across the sectoral, distributive, industrial, monetary and institutional dimensions at once. Sufficiency policy stops being compensation and becomes **coordination**.
 
-**The analytical tools change.** Models that assume a competitive equilibrium with a largely given structure, and represent structural change as a marginal perturbation around an equilibrium path, are poorly equipped for processes combining the emergence of new entities, increased heterogeneity across agents and sectors, and out-of-equilibrium dynamics.
+**The tools.** Models assuming a competitive equilibrium with a given structure, where change is a marginal perturbation around an equilibrium path, are poorly equipped for emergence, heterogeneity and out-of-equilibrium dynamics.
 
-**And law becomes endogenous.** If sufficiency is structural change, legal frameworks are no longer an exogenous setting whose effects the economy merely undergoes: they are among the components the transition transforms, and which transform the transition. Sectoral production caps, enforceable durability and reparability standards, advertising restrictions, land-use planning rules, job guarantees, legal statutes for commons and mission-led firms are all levers whose coherence with the other dimensions conditions the viability of the transition. The thin legal operationalisation of sufficiency then looks less like an implementation problem than like **a shared theoretical agenda between economics and law**.
+**And law becomes endogenous.** Production caps, enforceable durability and reparability standards, advertising restrictions, planning rules, job guarantees, legal statutes for commons and mission-led firms are structural components the transition transforms and which transform it in turn. The thin legal operationalisation of sufficiency is then less an implementation problem than **a shared agenda between economics and law**.
 
 ## Research projects
 
 <ul class="project-list">
   <li class="project-card">
-    <h3 class="project-card__title">Economic structures for low-demand futures: a systematic mapping</h3>
+    <div class="project-card__head">
+      <h3 class="project-card__title">Economic structures for low-demand futures: a systematic mapping</h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Systematic review</li>
+        <li class="tag tag--draft">First draft</li>
+        <li class="tag tag--people">with Gabriele Dabbaghian</li>
+      </ul>
+    </div>
     <p class="project-card__desc">What the literature already says about the structural configurations compatible with low-demand futures — and what it leaves unmapped.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Systematic review</li>
-      <li class="tag tag--draft">First draft</li>
-      <li class="tag tag--people">with Gabriele Dabbaghian</li>
-    </ul>
   </li>
   <li class="project-card">
-    <h3 class="project-card__title">Quality over Quantity: investigating the macroeconomic impacts of product longevity as a sufficiency lever</h3>
+    <div class="project-card__head">
+      <h3 class="project-card__title">Quality over Quantity: the macroeconomic impacts of product longevity as a sufficiency lever</h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Stylised SFC model</li>
+        <li class="tag tag--review">Under review</li>
+      </ul>
+    </div>
     <p class="project-card__desc">What happens to output, employment and incomes when goods are built to last — sufficiency as a change in the quality of production rather than an exogenous demand cut.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Stylised SFC model</li>
-      <li class="tag tag--review">Under review</li>
-    </ul>
   </li>
   <li class="project-card">
-    <h3 class="project-card__title">Sufficiency-enabling infrastructure and structural change under a carbon budget</h3>
+    <div class="project-card__head">
+      <h3 class="project-card__title">Sufficiency-enabling infrastructure and structural change under a carbon budget</h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Multisector growth model</li>
+        <li class="tag tag--draft">First draft</li>
+      </ul>
+    </div>
     <p class="project-card__desc">Sufficiency requires investment before it delivers reductions: how the infrastructure that makes low-demand lifestyles possible competes for a finite carbon budget.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Multisector growth model</li>
-      <li class="tag tag--draft">First draft</li>
-    </ul>
   </li>
   <li class="project-card">
-    <h3 class="project-card__title">Structural change through structural dependencies: a core–periphery model of sufficiency transitions</h3>
+    <div class="project-card__head">
+      <h3 class="project-card__title">Structural change through structural dependencies: a core–periphery model of sufficiency transitions</h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Extended stylised IO</li>
+        <li class="tag tag--presented">Presented at ICEM 2026</li>
+        <li class="tag tag--people">with Cyril Chavannat</li>
+      </ul>
+    </div>
     <p class="project-card__desc">How inter-sectoral dependencies propagate a demand reduction through the productive system, and which sectors turn out to be structurally pivotal.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Extended stylised IO</li>
-      <li class="tag tag--presented">Presented at ICEM 2026</li>
-      <li class="tag tag--people">with Cyril Chavannat</li>
-    </ul>
   </li>
   <li class="project-card">
-    <h3 class="project-card__title">Occupational reallocation constraints in demand-side mitigation: an agent-based analysis of French sufficiency pathways</h3>
+    <div class="project-card__head">
+      <h3 class="project-card__title">Occupational reallocation constraints in demand-side mitigation: French sufficiency pathways</h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Agent-based model</li>
+        <li class="tag tag--new">New</li>
+      </ul>
+    </div>
     <p class="project-card__desc">Whether workers released by contracting sectors can actually reach the expanding ones — the labour-market side of the coherence condition, for France.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Agent-based model</li>
-      <li class="tag tag--new">New</li>
-    </ul>
   </li>
 </ul>
 
@@ -147,22 +143,30 @@ Low-demand transitions pose a different question. It is no longer about describi
 
 <ul class="project-list">
   <li class="project-card project-card--side">
-    <h3 class="project-card__title">Democratising the macroeconomic modelling toolbox</h3>
-    <p class="project-card__desc">A contribution on democratic planning and governance: who gets to build, run and contest the models that frame economic policy.</p>
-    <p class="project-card__ref">D'Alessandro, S., Bordenave, M., &amp; Rouge, K. (2026). “Policy Profile 6.4: Democratising the Macroeconomic Modelling Toolbox.” In <em>The Roadmap for Eradicating Poverty Beyond Growth: Report of the Special Rapporteur on extreme poverty and human rights, Olivier De Schutter</em>. New Economies Eradicating Poverty.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Policy profile</li>
-      <li class="tag tag--presented">June 2026</li>
-    </ul>
+    <div class="project-card__head">
+      <h3 class="project-card__title"><a href="https://www.neep-poverty.org/wp-content/uploads/2026/06/6.4_Democratising-the-Macroeconomic-Modelling-Toolbox.pdf">Democratising the macroeconomic modelling toolbox</a></h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Policy profile</li>
+        <li class="tag tag--presented">June 2026</li>
+      </ul>
+    </div>
+    <div class="project-card__body">
+      <p class="project-card__desc">Who gets to build, run and contest the models that frame economic policy.</p>
+      <p class="project-card__ref">D'Alessandro, S., Bordenave, M., &amp; Rouge, K. (2026). “Policy Profile 6.4: Democratising the Macroeconomic Modelling Toolbox.” In <em>The Roadmap for Eradicating Poverty Beyond Growth: Report of the Special Rapporteur on extreme poverty and human rights, Olivier De Schutter</em>. New Economies Eradicating Poverty.</p>
+    </div>
   </li>
   <li class="project-card project-card--side">
-    <h3 class="project-card__title">Penser la macroéconomie des transitions de sobriété comme un changement structurel</h3>
-    <p class="project-card__desc">The French-language statement of the framing above, written for a law-and-sufficiency colloquium: legal instruments as one of the structural components to coordinate, rather than an external frame.</p>
-    <p class="project-card__ref">Rouge, K. (2026). In B. Le Baut-Ferrarese, M. Moline-Dubost &amp; L. Robert (Eds.), <em>Le droit en toutes sobriétés</em>. Forthcoming.</p>
-    <ul class="tag-row">
-      <li class="tag tag--method">Book chapter</li>
-      <li class="tag tag--draft">Forthcoming</li>
-    </ul>
+    <div class="project-card__head">
+      <h3 class="project-card__title">Penser la macroéconomie des transitions de sobriété comme un changement structurel</h3>
+      <ul class="tag-row">
+        <li class="tag tag--method">Book chapter</li>
+        <li class="tag tag--draft">Forthcoming</li>
+      </ul>
+    </div>
+    <div class="project-card__body">
+      <p class="project-card__desc">The French statement of the framing above, for a law-and-sufficiency colloquium: legal instruments as structural components to coordinate, not an external frame.</p>
+      <p class="project-card__ref">Rouge, K. (2026). In B. Le Baut-Ferrarese, M. Moline-Dubost &amp; L. Robert (Eds.), <em>Le droit en toutes sobriétés</em>. Forthcoming.</p>
+    </div>
   </li>
 </ul>
 
