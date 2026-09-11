@@ -191,14 +191,13 @@ $tag-new       : #5f4f96;
   }
 
   strong {
+    display: block;
+    margin-bottom: 0.2em;
     color: $text-color;
+    font-size: 0.85em;
     font-weight: 600;
-
-    &::after {
-      content: " \2014 ";
-      color: $research-faint;
-      font-weight: 400;
-    }
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   span {

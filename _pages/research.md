@@ -44,7 +44,7 @@ Macroeconomic consequences are often evaluated **at constant productive structur
 **Economic structure** here means the long-run configuration of several interdependent dimensions:
 
 <ul class="structure-grid">
-  <li><strong>Sectoral composition</strong><span>What is produced, and the input–output links holding it together</span></li>
+  <li><strong>Sectoral composition</strong><span>What is produced, and the input-output links holding it together</span></li>
   <li><strong>Industrial organisation</strong><span>Firm size, trade, geography, business models</span></li>
   <li><strong>Technical change</strong><span>Its direction and its intensity</span></li>
   <li><strong>Employment structure</strong><span>Employment level, wage, skills, working conditions</span></li>
@@ -61,6 +61,8 @@ Some sectors shrink (fast fashion, aviation, intensive livestock), others expand
 Looking at all these dimensions coherently raises key questions for low-demand transitions:
 
 > Do expanding sectors generate enough jobs to absorb the labour released by contracting ones? Do their productivity dynamics support a real wage consistent with meeting essential needs? Does their investment find financing compatible with the savings of the system? Does the public balance hold under an enlarged role for public financing?
+>
+> _And so many more interesting questions_
 
 
 </section>
@@ -116,7 +118,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   <li class="project-card">
     <div class="project-card__head">
       <span class="project-card__num" aria-hidden="true">04</span>
-      <h3 class="project-card__title">Structural change through structural dependencies: a core–periphery model of sufficiency transitions</h3>
+      <h3 class="project-card__title">Structural change through structural dependencies: a core-periphery model of sufficiency transitions</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Extended stylised IO</li>
         <li class="tag tag--presented">Presented at ICEM 2026</li>
