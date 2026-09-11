@@ -404,35 +404,28 @@
    Inline "more on…" link
    ========================================================================== */
 
-/* Flat tinted pill: colour carries it, no border or shadow. */
+/* Soft tinted box, no icon or border. Both states clear 5:1 on white. */
 .more-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.3em 0.9em;
-  border-radius: 2em;
-  background: mix(#fff, $link-color, 90%);
-  color: mix(#000, $link-color, 35%); /* darkened for contrast on the tint */
+  display: inline-block;
+  padding: 0.55em 1.1em;
+  border-radius: $border-radius;
+  background: mix(#fff, $link-color, 88%);
+  color: mix(#000, $link-color, 40%);
   font-family: $sans-serif;
   font-size: $type-size-6;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1.7;
+  font-weight: 500;
   text-decoration: none;
   transition: $global-transition;
-
-  &::after {
-    content: "\f061"; /* arrow-right */
-    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-left: 0.55em;
-    font-size: 0.8em;
-    opacity: 0.8;
-  }
 
   &:hover,
   &:focus {
     background: mix(#fff, $link-color, 78%);
-    color: mix(#000, $link-color, 45%);
+    color: mix(#000, $link-color, 40%);
     text-decoration: none;
   }
+}
+
+/* breathing room between the prose and the button */
+.more-link-wrap {
+  margin: 1.1em 0 0;
 }
