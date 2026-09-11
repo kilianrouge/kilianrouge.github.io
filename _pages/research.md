@@ -82,7 +82,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
       </ul>
     </div>
     <div class="project-card__body">
-      <p class="project-card__desc">What the literature already says about the structural configurations compatible with low-demand futures — and what it leaves unmapped.</p>
+      <p class="project-card__desc">What the literature already says about the structural configurations compatible with low-demand futures and what it leaves unmapped.</p>
       <p class="project-card__actions"><a class="deck-link" href="/files/research/260702_SR_Website.pdf">Latest slide deck</a></p>
     </div>
   </li>
@@ -96,7 +96,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
       </ul>
     </div>
     <div class="project-card__body">
-      <p class="project-card__desc">What happens to output, employment and incomes when goods are built to last — sufficiency as a change in the quality of production rather than an exogenous demand cut.</p>
+      <p class="project-card__desc">What happens to output, employment and incomes when goods are built to last, depending on what “quality” changes in terms of structural dynamics.</p>
       <p class="project-card__actions"><a class="deck-link" href="/files/research/260204_QQ_Website.pdf">Latest slide deck</a></p>
     </div>
   </li>
@@ -110,7 +110,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
       </ul>
     </div>
     <div class="project-card__body">
-      <p class="project-card__desc">Sufficiency requires investment before it delivers reductions: how the infrastructure that makes low-demand lifestyles possible competes for a finite carbon budget.</p>
+      <p class="project-card__desc">Investigating sufficiency as enabling investment in an orthodox growth model. How the infrastructure that makes low-demand lifestyles possible competes for a finite carbon budget. Focus on sectoral prioritisation of investment.</p>
       <p class="project-card__actions"><a class="deck-link" href="/files/research/260609_GM_Website.pdf">Latest slide deck</a></p>
     </div>
   </li>
@@ -124,7 +124,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
         <li class="tag tag--people">with Cyril Chavannat</li>
       </ul>
     </div>
-    <p class="project-card__desc">How inter-sectoral dependencies propagate a demand reduction through the productive system, and which sectors turn out to be structurally pivotal.</p>
+    <p class="project-card__desc">How physical and monetary dependencies constrain the response of peripheral countries to sufficiency transitions in the core.</p>
   </li>
   <li class="project-card">
     <div class="project-card__head">
@@ -135,7 +135,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
         <li class="tag tag--new">New</li>
       </ul>
     </div>
-    <p class="project-card__desc">Whether workers released by contracting sectors can actually reach the expanding ones — the labour-market side of the coherence condition, for France.</p>
+    <p class="project-card__desc">Whether workers released by contracting sectors can actually reach the expanding ones.</p>
   </li>
 </ul>
 
