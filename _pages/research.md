@@ -147,7 +147,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   <li class="project-card project-card--side">
     <div class="project-card__head">
       <span class="project-card__num" aria-hidden="true">01</span>
-      <h3 class="project-card__title"><a href="https://www.neep-poverty.org/wp-content/uploads/2026/06/6.4_Democratising-the-Macroeconomic-Modelling-Toolbox.pdf">Democratising the macroeconomic modelling toolbox</a></h3>
+      <h3 class="project-card__title">Democratising the macroeconomic modelling toolbox</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Policy profile</li>
         <li class="tag tag--presented">June 2026</li>
@@ -156,6 +156,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
     </div>
     <div class="project-card__body">
       <p class="project-card__desc">Who gets to build, run and contest the models that frame economic policy.</p>
+      <p class="project-card__actions"><a class="deck-link" href="https://www.neep-poverty.org/wp-content/uploads/2026/06/6.4_Democratising-the-Macroeconomic-Modelling-Toolbox.pdf">Paper</a></p>
       <p class="project-card__ref">D'Alessandro, S., Bordenave, M., &amp; Rouge, K. (2026). “Policy Profile 6.4: Democratising the Macroeconomic Modelling Toolbox.” In <em>The Roadmap for Eradicating Poverty Beyond Growth: Report of the Special Rapporteur on extreme poverty and human rights, Olivier De Schutter</em>. New Economies Eradicating Poverty.</p>
     </div>
   </li>
