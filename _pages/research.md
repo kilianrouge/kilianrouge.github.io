@@ -12,12 +12,18 @@ redirect_from:
 The main concerns with low-demand transitions are its macroeconomic consequences; think unemployment, inequality, deficits, monetary instabilityn. The defining approach of my PhD is to consider them not as separate obstacles but as facets of one process of **directed structural change**, constrained by ecological limits and by the requirement that needs be met.
 </div>
 
-<nav class="research-switch" aria-label="Research sections">
-  <a class="research-switch__btn" href="#context" data-panel="context">Framing</a>
-  <a class="research-switch__btn" href="#projects" data-panel="projects">Projects</a>
+<nav class="section-rail" aria-label="Page sections">
+  <a class="section-rail__item" href="#context">
+    <span class="section-rail__label">Framing</span>
+    <span class="section-rail__dot" aria-hidden="true"></span>
+  </a>
+  <a class="section-rail__item" href="#projects">
+    <span class="section-rail__label">Projects</span>
+    <span class="section-rail__dot" aria-hidden="true"></span>
+  </a>
 </nav>
 
-<section id="context" class="research-panel" markdown="1">
+<section id="context" class="research-section" markdown="1">
 
 ## Where this starts: ecological sufficiency
 
@@ -59,7 +65,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
 
 </section>
 
-<section id="projects" class="research-panel" markdown="1">
+<section id="projects" class="research-section" markdown="1">
 
 ## Research projects
 
@@ -125,7 +131,7 @@ Looking at all these dimensions coherently raises key questions for low-demand t
       <h3 class="project-card__title">Occupational reallocation constraints in demand-side mitigation: French sufficiency pathways</h3>
       <ul class="tag-row">
         <li class="tag tag--method">Agent-based model</li>
-        <li class="tag tag--new">New</li>
+        <li class="tag tag--new">Vague idea</li>
       </ul>
     </div>
     <p class="project-card__desc">Whether workers released by contracting sectors can actually reach the expanding ones.</p>
@@ -173,52 +179,46 @@ _Stay tuned for updates on my research!_
 
 <script>
 (function () {
-  var panels = Array.prototype.slice.call(document.querySelectorAll('.research-panel'));
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.research-switch__btn'));
-  if (!panels.length) return;
-  document.documentElement.classList.add('has-research-switch');
+  var rail = document.querySelector('.section-rail');
+  if (!rail) return;
+  var items = Array.prototype.slice.call(rail.querySelectorAll('.section-rail__item'));
+  var sections = items.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if (sections.indexOf(null) !== -1) return;
 
-  function show(name, scroll) {
-    panels.forEach(function (p) { p.classList.toggle('is-active', p.id === name); });
-    buttons.forEach(function (b) {
-      var on = b.getAttribute('data-panel') === name;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-current', on ? 'true' : 'false');
+  var OFFSET = 90; /* fixed masthead plus breathing room */
+
+  function top(el) { return el.getBoundingClientRect().top + window.pageYOffset; }
+
+  function sync() {
+    var y = window.pageYOffset + OFFSET + 40;
+    var current = 0;
+    sections.forEach(function (s, i) { if (top(s) <= y) current = i; });
+    items.forEach(function (a, i) {
+      var on = i === current;
+      a.classList.toggle('is-active', on);
+      a.setAttribute('aria-current', on ? 'true' : 'false');
     });
-    if (scroll) {
-      /* clear the fixed masthead (70px) plus the sticky tab bar */
-      var panel = document.getElementById(name);
-      if (panel) {
-        var y = panel.getBoundingClientRect().top + window.pageYOffset - 125;
-        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-      }
-    }
   }
 
-  function panelFor(hash) {
-    if (!hash) return null;
-    var el;
-    try { el = document.querySelector(hash); } catch (e) { return null; }
-    if (!el) return null;
-    var p = el.closest('.research-panel');
-    return p ? p.id : null;
+  var queued = false;
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(function () { queued = false; sync(); });
   }
 
-  show(panelFor(window.location.hash) || 'context', false);
-
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var name = a.getAttribute('data-panel') || panelFor(a.hash);
-    if (!name) return;
-    e.preventDefault();
-    history.replaceState(null, '', a.getAttribute('href'));
-    show(name, true);
+  items.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: Math.max(0, top(target) - OFFSET), behavior: 'smooth' });
+      history.replaceState(null, '', a.getAttribute('href'));
+    });
   });
 
-  window.addEventListener('hashchange', function () {
-    var name = panelFor(window.location.hash);
-    if (name) show(name, true);
-  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  sync();
 })();
 </script>

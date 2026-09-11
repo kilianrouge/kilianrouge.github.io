@@ -1,16 +1,17 @@
 /* ==========================================================================
    RESEARCH PAGE
+
+   Deliberately quiet: no cards, chips, shadows or accent colours. Hierarchy
+   comes from type size and spacing, and the only colour is a link.
    ========================================================================== */
 
+$research-muted : mix(#fff, $text-color, 35%);
+$research-faint : mix(#fff, $text-color, 55%);
+
 .research-lead {
-  margin: 1.5em 0 2em;
-  padding: 1.25em 1.5em;
-  border-left: 4px solid $link-color;
-  border-radius: 0 $border-radius $border-radius 0;
-  background: mix(#fff, $link-color, 94%);
-  font-size: $type-size-4;
-  line-height: 1.5;
-  color: mix(#000, $text-color, 15%);
+  margin: 1.5em 0 2.5em;
+  font-size: $type-size-5;
+  line-height: 1.65;
 
   p {
     margin: 0;
@@ -21,81 +22,98 @@
   }
 }
 
-.research-section-intro {
-  font-size: $type-size-5;
-  color: mix(#fff, $text-color, 15%);
+.research-section {
+  scroll-margin-top: 90px; /* clear the fixed masthead on anchor jumps */
 }
 
-/* Context / projects switcher
+.research-section + .research-section {
+  margin-top: 3.5em;
+}
+
+/* Section rail
    ========================================================================== */
 
-/* Sticky under the fixed masthead, so switching never means scrolling back up. */
-.research-switch {
-  position: sticky;
-  top: $masthead-height;
-  z-index: 10;
-  display: flex;
-  gap: 1.75em;
-  margin: 1.5em 0 2em;
-  padding: 0.6em 0 0;
-  border-bottom: 1px solid $border-color;
-  background: $background-color;
+/* Fixed dot rail marking the two parts of the page; hidden where there is no
+   room for it beside the content column. */
+.section-rail {
+  display: none;
+
+  @include breakpoint($large) {
+    position: fixed;
+    top: 50%;
+    right: 1.75em;
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    transform: translateY(-50%);
+  }
 }
 
-.research-switch__btn {
-  padding: 0 0 0.5em;
-  margin-bottom: -1px;
-  border-bottom: 2px solid transparent;
-  color: mix(#fff, $text-color, 40%);
-  font-family: $sans-serif;
-  font-size: $type-size-6;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.section-rail__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65em;
   text-decoration: none;
-  transition: $global-transition;
 
   &:hover,
   &:focus {
-    color: $link-color;
     text-decoration: none;
-  }
 
-  &.is-active {
-    color: $link-color;
-    border-bottom-color: $link-color;
+    .section-rail__label {
+      color: $text-color;
+    }
+
+    .section-rail__dot {
+      border-color: $research-muted;
+    }
   }
 }
 
-/* Panels — both visible without JS; the script hides the inactive one. */
-.research-panel > h2:first-child {
-  margin-top: 0;
+.section-rail__label {
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $research-faint;
+  transition: $global-transition;
+
+  .section-rail__item.is-active & {
+    color: $text-color;
+  }
 }
 
-.has-research-switch .research-panel {
-  display: none;
+.section-rail__dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border: 1px solid $research-faint;
+  border-radius: 50%;
+  background: transparent;
+  transition: $global-transition;
 
-  &.is-active {
-    display: block;
+  .section-rail__item.is-active & {
+    border-color: $text-color;
+    background: $text-color;
   }
 }
 
 /* Tags
    ========================================================================== */
 
-/* Pill palette: methods read as tinted outlines, status as filled chips.
-   Filled tones are deep enough to carry white text at 11px. */
-$tag-method    : #1f7f9e;
-$tag-draft     : #5b676f;
-$tag-review    : #a76a12;
-$tag-presented : #2f7d4f;
-$tag-new       : #6a4bb0;
+/* Colour-coded, but as text rather than chips: the hue carries the status,
+   the middots keep the run quiet. */
+$tag-method    : #2b6e85;
+$tag-draft     : #6b757c;
+$tag-review    : #96601a;
+$tag-presented : #2f6b4a;
+$tag-new       : #5f4f96;
 
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4em;
-  margin: 0.75em 0 0;
+  margin: 0.5em 0 0;
   padding: 0;
   list-style: none;
 }
@@ -104,53 +122,32 @@ $tag-new       : #6a4bb0;
   display: inline-flex;
   align-items: center;
   margin: 0; /* override base `ul li` bottom margin */
-  padding: 0.28em 0.75em;
-  border: 1px solid transparent;
-  border-radius: 2em;
-  background: mix(#fff, $lighter-gray, 35%);
-  color: mix(#000, $text-color, 10%);
+  padding: 0;
+  color: $research-muted;
   font-size: $type-size-7;
-  font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.6;
-  white-space: nowrap;
-}
 
-/* method — tinted outline */
-.tag--method {
-  border-color: mix(#fff, $tag-method, 60%);
-  background: mix(#fff, $tag-method, 92%);
-  color: $tag-method;
-}
-
-/* status — filled */
-.tag--draft,
-.tag--review,
-.tag--presented,
-.tag--new {
-  color: #fff;
-}
-
-.tag--draft     { background: $tag-draft; }
-.tag--review    { background: $tag-review; }
-.tag--presented { background: $tag-presented; }
-.tag--new       { background: $tag-new; }
-
-/* co-authors — no chrome, just a marker */
-.tag--people {
-  padding-left: 0;
-  background: transparent;
-  color: mix(#fff, $text-color, 25%);
-  font-weight: 500;
-
-  &::before {
-    content: "\f0c0"; /* users */
-    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-right: 0.45em;
-    font-size: 0.9em;
-    opacity: 0.65;
+  &:not(:last-child)::after {
+    content: "\00b7";
+    margin: 0 0.55em;
+    color: $research-faint;
   }
+}
+
+.tag--method    { color: $tag-method; }
+.tag--draft     { color: $tag-draft; }
+.tag--review    { color: $tag-review; }
+.tag--presented { color: $tag-presented; }
+.tag--new       { color: $tag-new; }
+
+.tag--people {
+  font-style: italic;
+}
+
+/* the separator stays neutral whatever the tag colour */
+.tag:not(:last-child)::after {
+  color: $research-faint;
 }
 
 /* Structural dimensions grid
@@ -159,7 +156,7 @@ $tag-new       : #6a4bb0;
 .structure-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75em;
+  gap: 1em 2.5em;
   margin: 1.5em 0 2em;
   padding: 0;
   list-style: none;
@@ -168,165 +165,95 @@ $tag-new       : #6a4bb0;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include breakpoint($large) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   li {
     margin: 0;
-    padding: 0.85em 1em;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    background: mix(#fff, $background-color, 60%);
-    font-size: 0.875em;
-    line-height: 1.5;
-    transition: $global-transition;
-
-    &:hover {
-      border-color: mix(#fff, $link-color, 55%);
-      box-shadow: 0 4px 12px rgba($gray, 0.14);
-    }
+    padding: 0;
+    font-size: $type-size-6;
+    line-height: 1.55;
   }
 
   strong {
-    display: block;
-    margin-bottom: 0.2em;
-    color: mix(#000, $text-color, 20%);
-    font-size: 0.85em;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    color: $text-color;
+    font-weight: 600;
+
+    &::after {
+      content: " \2014 ";
+      color: $research-faint;
+      font-weight: 400;
+    }
   }
 
   span {
-    color: mix(#fff, $text-color, 15%);
+    color: $research-muted;
   }
 }
 
-/* Macroeconomic channels
-   ========================================================================== */
-
-.channel-list {
-  margin: 1.5em 0 2em;
-  padding: 0;
-  list-style: none;
-
-  li {
-    position: relative;
-    margin: 0 0 0.9em;
-    padding: 0 0 0 1.6em;
-    font-size: $type-size-5;
-    line-height: 1.55;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0.55em;
-      left: 0;
-      width: 0.5em;
-      height: 0.5em;
-      border-radius: 50%;
-      background: $link-color;
-      opacity: 0.55;
-    }
-  }
-
-  strong {
-    color: mix(#000, $text-color, 20%);
-  }
-}
-
-/* Slide-deck button
+/* Slide-deck link
    ========================================================================== */
 
 .deck-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.4em 0.95em;
-  border: 1px solid mix(#fff, $link-color, 55%);
-  border-radius: 2em;
-  background: mix(#fff, $link-color, 94%);
-  color: $link-color;
   font-size: $type-size-6;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.6;
+  color: $research-muted;
   text-decoration: none;
-  transition: $global-transition;
-
-  &::before {
-    content: "\f1c1"; /* file-pdf */
-    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-right: 0.5em;
-    font-size: 0.95em;
-  }
+  border-bottom: 1px solid mix(#fff, $text-color, 75%);
 
   &:hover,
   &:focus {
-    border-color: $link-color;
-    background: $link-color;
-    color: #fff;
+    color: $link-color;
+    border-bottom-color: $link-color;
     text-decoration: none;
   }
 }
 
-/* Project cards
+/* Project list
    ========================================================================== */
 
 .project-list {
   margin: 1.5em 0 2.5em;
   padding: 0;
   list-style: none;
+  counter-reset: project;
 }
 
 .project-card {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.6em 1.75em;
-  align-items: start;
-  margin: 0 0 1.1em;
-  padding: 1.15em 1.35em;
-  border: 1px solid $border-color;
-  border-left: 3px solid mix(#fff, $link-color, 40%);
-  border-radius: $border-radius;
-  background: mix(#fff, $background-color, 80%);
-  box-shadow: 0 1px 2px rgba($gray, 0.12);
-  transition: $global-transition;
+  gap: 0.45em 2.5em;
+  align-items: baseline;
+  margin: 0;
+  padding: 1.35em 0;
+  border-bottom: 1px solid mix(#fff, $border-color, 35%);
 
-  &:hover {
-    border-color: mix(#000, $border-color, 10%);
-    border-left-color: $link-color;
-    box-shadow: 0 6px 16px rgba($gray, 0.16);
+  &:last-child {
+    border-bottom: 0;
   }
 
   .project-card__head {
     position: relative;
     min-width: 0;
-    padding-left: 2.6em;
+    padding-left: 2.1em;
   }
 
   .project-card__num {
     position: absolute;
-    top: 0;
+    top: 0.15em;
     left: 0;
-    font-size: $type-size-4;
-    font-weight: 700;
+    font-size: $type-size-6;
     font-variant-numeric: tabular-nums;
-    line-height: 1.35;
-    color: mix(#fff, $link-color, 45%);
+    color: $research-faint;
   }
 
   .project-card__title {
     margin: 0;
-    font-size: $type-size-4;
+    font-size: $type-size-5;
     font-weight: 600;
-    line-height: 1.35;
-    color: mix(#000, $text-color, 20%);
+    line-height: 1.45;
+    color: $text-color;
 
     a {
       color: inherit;
       text-decoration: none;
-      border-bottom: 1px solid mix(#fff, $link-color, 55%);
+      border-bottom: 1px solid mix(#fff, $text-color, 75%);
 
       &:hover {
         color: $link-color;
@@ -341,38 +268,24 @@ $tag-new       : #6a4bb0;
 
   .project-card__desc {
     margin: 0;
-    font-size: $type-size-5;
-    line-height: 1.55;
-    color: mix(#fff, $text-color, 15%);
+    font-size: $type-size-6;
+    line-height: 1.6;
+    color: $research-muted;
   }
 
   .project-card__actions {
-    margin: 0.9em 0 0;
-  }
-
-  /* title and tags beside the description once there is room for two tracks */
-  @media (min-width: 48em) {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    padding: 1.25em 1.5em;
-  }
-}
-
-.project-card--side {
-  border-left-color: mix(#fff, $gray, 40%);
-
-  &:hover {
-    border-left-color: $gray;
-  }
-
-  /* same scale as the research cards; only the accent colour differs */
-  .project-card__num {
-    color: mix(#fff, $gray, 35%);
+    margin: 0.6em 0 0;
   }
 
   .project-card__ref {
     margin: 0.6em 0 0;
-    font-size: $type-size-6;
+    font-size: $type-size-7;
     line-height: 1.6;
-    color: mix(#fff, $text-color, 25%);
+    color: $research-faint;
+  }
+
+  /* title and metadata beside the description once there is room */
+  @media (min-width: 48em) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
