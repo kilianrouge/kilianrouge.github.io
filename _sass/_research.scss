@@ -269,6 +269,41 @@ $tag-new       : #6a4bb0;
   }
 }
 
+/* Slide-deck button
+   ========================================================================== */
+
+.deck-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4em 0.95em;
+  border: 1px solid mix(#fff, $link-color, 55%);
+  border-radius: 2em;
+  background: mix(#fff, $link-color, 94%);
+  color: $link-color;
+  font-size: $type-size-6;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: $global-transition;
+
+  &::before {
+    content: "\f1c1"; /* file-pdf */
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 0.5em;
+    font-size: 0.95em;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $link-color;
+    background: $link-color;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
 /* Project cards
    ========================================================================== */
 
@@ -343,6 +378,10 @@ $tag-new       : #6a4bb0;
     font-size: $type-size-5;
     line-height: 1.55;
     color: mix(#fff, $text-color, 15%);
+  }
+
+  .project-card__actions {
+    margin: 0.9em 0 0;
   }
 
   /* title and tags beside the description once there is room for two tracks */

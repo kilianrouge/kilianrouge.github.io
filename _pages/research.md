@@ -81,7 +81,10 @@ Looking at all these dimensions coherently raises key questions for low-demand t
         <li class="tag tag--people">with Gabriele Dabbaghian</li>
       </ul>
     </div>
-    <p class="project-card__desc">What the literature already says about the structural configurations compatible with low-demand futures — and what it leaves unmapped.</p>
+    <div class="project-card__body">
+      <p class="project-card__desc">What the literature already says about the structural configurations compatible with low-demand futures — and what it leaves unmapped.</p>
+      <p class="project-card__actions"><a class="deck-link" href="/files/research/260702_SR_Website.pdf">Latest slide deck</a></p>
+    </div>
   </li>
   <li class="project-card">
     <div class="project-card__head">
@@ -92,7 +95,10 @@ Looking at all these dimensions coherently raises key questions for low-demand t
         <li class="tag tag--review">Under review</li>
       </ul>
     </div>
-    <p class="project-card__desc">What happens to output, employment and incomes when goods are built to last — sufficiency as a change in the quality of production rather than an exogenous demand cut.</p>
+    <div class="project-card__body">
+      <p class="project-card__desc">What happens to output, employment and incomes when goods are built to last — sufficiency as a change in the quality of production rather than an exogenous demand cut.</p>
+      <p class="project-card__actions"><a class="deck-link" href="/files/research/260204_QQ_Website.pdf">Latest slide deck</a></p>
+    </div>
   </li>
   <li class="project-card">
     <div class="project-card__head">
@@ -103,7 +109,10 @@ Looking at all these dimensions coherently raises key questions for low-demand t
         <li class="tag tag--draft">First draft</li>
       </ul>
     </div>
-    <p class="project-card__desc">Sufficiency requires investment before it delivers reductions: how the infrastructure that makes low-demand lifestyles possible competes for a finite carbon budget.</p>
+    <div class="project-card__body">
+      <p class="project-card__desc">Sufficiency requires investment before it delivers reductions: how the infrastructure that makes low-demand lifestyles possible competes for a finite carbon budget.</p>
+      <p class="project-card__actions"><a class="deck-link" href="/files/research/260609_GM_Website.pdf">Latest slide deck</a></p>
+    </div>
   </li>
   <li class="project-card">
     <div class="project-card__head">
