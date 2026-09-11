@@ -13,14 +13,8 @@ The main concerns with low-demand transitions are its macroeconomic consequences
 </div>
 
 <nav class="research-switch" aria-label="Research sections">
-  <a class="research-switch__btn" href="#context" data-panel="context">
-    <span class="research-switch__label">The framing</span>
-    <span class="research-switch__sub">Why structural change</span>
-  </a>
-  <a class="research-switch__btn" href="#projects" data-panel="projects">
-    <span class="research-switch__label">The projects</span>
-    <span class="research-switch__sub">5 PhD papers, 2 side projects</span>
-  </a>
+  <a class="research-switch__btn" href="#context" data-panel="context">Framing</a>
+  <a class="research-switch__btn" href="#projects" data-panel="projects">Projects</a>
 </nav>
 
 <section id="context" class="research-panel" markdown="1">
@@ -32,7 +26,7 @@ Keeping the **1.5° objective** alive takes more than **improving the efficiency
 <p align="center">
   <img src="/images/blog/litreview_framework.svg" alt="Literature review framework" style="width: 100%; max-width: 800px;">
   <br>
-  <em>Figure 1: Sufficiency in the literature — a framework analysis</em>
+  <em>Figure 1: Sufficiency in the literature, a framework analysis</em>
 </p>
 
 Most of that work sits at the **microeconomic scale**. The objections that actually structure political debate are **macroeconomic** !
@@ -62,7 +56,6 @@ Looking at all these dimensions coherently raises key questions for low-demand t
 
 > Do expanding sectors generate enough jobs to absorb the labour released by contracting ones? Do their productivity dynamics support a real wage consistent with meeting essential needs? Does their investment find financing compatible with the savings of the system? Does the public balance hold under an enlarged role for public financing?
 
-<p class="research-jump"><a href="#projects" data-panel="projects">See the projects this framing leads to <span aria-hidden="true">&rarr;</span></a></p>
 
 </section>
 
@@ -175,7 +168,6 @@ Looking at all these dimensions coherently raises key questions for low-demand t
 
 _Stay tuned for updates on my research!_
 
-<p class="research-jump"><a href="#context" data-panel="context"><span aria-hidden="true">&larr;</span> Back to the framing</a></p>
 
 </section>
 
@@ -194,8 +186,12 @@ _Stay tuned for updates on my research!_
       b.setAttribute('aria-current', on ? 'true' : 'false');
     });
     if (scroll) {
-      var nav = document.querySelector('.research-switch');
-      if (nav) nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      /* clear the fixed masthead (70px) plus the sticky tab bar */
+      var panel = document.getElementById(name);
+      if (panel) {
+        var y = panel.getBoundingClientRect().top + window.pageYOffset - 125;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      }
     }
   }
 
