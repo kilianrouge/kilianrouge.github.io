@@ -143,28 +143,37 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
 </ul>
 
-<figure class="coverage-figure sc-wait" markdown="0">
+{::nomarkdown}
+<figure class="coverage-figure sc-wait">
   <div class="coverage-figure__scroll">
     {% include figures/structural_coverage.svg %}
   </div>
   <figcaption>Figure 2: which dimensions of structural change each chapter covers. The outer ring is the framework, each inner ring a chapter.</figcaption>
 </figure>
+{:/nomarkdown}
 
 <script>
-/* Hold the figure until it is actually on screen, then let it play once. */
+/* Hold the figure until it is on screen, and play it again whenever it comes
+   back. Toggling animation-play-state only resumes where it left off, so the
+   replay clears the animations and forces a reflow to start them from zero. */
 (function () {
   var fig = document.querySelector('.coverage-figure');
   if (!fig) return;
   if (!('IntersectionObserver' in window)) { fig.classList.remove('sc-wait'); return; }
-  var io = new IntersectionObserver(function (entries) {
+
+  function play() {
+    fig.classList.add('sc-reset');
+    void fig.offsetWidth;            /* reflow, so the restart takes effect */
+    fig.classList.remove('sc-reset');
+    fig.classList.remove('sc-wait');
+  }
+
+  new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('sc-wait');
-        io.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) play();
+      else fig.classList.add('sc-wait');
     });
-  }, { threshold: 0.25 });
-  io.observe(fig);
+  }, { threshold: 0.25 }).observe(fig);
 })();
 </script>
 

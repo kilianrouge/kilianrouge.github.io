@@ -569,6 +569,11 @@ def animated_svg(slots, coverage, L, path: Path, per_chapter=0.75, lead=0.25) ->
     plt.close(fig)
     svg = path.read_text(encoding="utf-8")
 
+    # matplotlib writes an XML declaration and a DOCTYPE. Neither is legal
+    # inside an HTML document, and a browser renders them as visible text when
+    # the file is inlined, so keep the markup from <svg onwards.
+    svg = svg[svg.index("<svg"):]
+
     # Give every dot its own delay, set from how far round the arc it sits, so
     # the dots land one by one as the track sweeps past them rather than the
     # whole set fading in together.
@@ -584,10 +589,11 @@ def animated_svg(slots, coverage, L, path: Path, per_chapter=0.75, lead=0.25) ->
             nonlocal k
             d = _t0 + 0.08 + 0.85 * (_it["fracs"][k] if k < len(_it["fracs"]) else 1.0)
             k += 1
-            return (m.group(0)[:-2]
-                    + f';opacity:0;animation:sc-fade .3s ease-out {d:.2f}s forwards"/>')
+            return (m.group(1) + m.group(2)
+                    + f";opacity:0;animation:sc-fade .3s ease-out {d:.2f}s forwards"
+                    + m.group(3))
 
-        svg = svg[:a] + re.sub(r'<use[^>]*style="[^"]*"/>', stamp, block) + svg[b:]
+        svg = svg[:a] + re.sub(r'(<use[^>]*style=")([^"]*)("\s*/>)', stamp, block) + svg[b:]
 
     for i in range(len(CHAPTERS)):
         for part in ("track", "tail"):
@@ -604,7 +610,17 @@ def animated_svg(slots, coverage, L, path: Path, per_chapter=0.75, lead=0.25) ->
             f"#sc-ch{i}-label, #sc-ch{i}-num, #sc-ch{i}-numbox {{ opacity: 0;"
             f" animation: sc-fade .45s ease-out {t + 0.62:.2f}s forwards; }}")
     style = ("<style>" + SVG_KEYFRAMES + "\n".join(rules)
-             + "\n.sc-wait [id^='sc-ch'], .sc-wait [id^='sc-ch'] path { animation-play-state: paused; }"
+             # .sc-wait holds everything at its start state; the dots are <use>
+        # children, so they have to be named too or they animate regardless.
+        # !important is needed: each dot carries its animation in an inline
+        # style attribute, and the shorthand there resets play-state to
+        # running at inline specificity, which would outrank this rule.
+        + "\n.sc-wait [id^='sc-ch'], .sc-wait [id^='sc-ch'] path,"
+          " .sc-wait [id^='sc-ch'] use { animation-play-state: paused !important; }"
+        # .sc-reset clears the animations outright, so the page can restart
+        # them by toggling it across a reflow.
+        + "\n.sc-reset [id^='sc-ch'], .sc-reset [id^='sc-ch'] path,"
+          " .sc-reset [id^='sc-ch'] use { animation: none !important; }"
              + "\n@media (prefers-reduced-motion: reduce) {"
                "\n  [id^='sc-ch'], [id^='sc-ch'] path, [id^='sc-ch'] use { animation: none !important;"
                " opacity: 1 !important; stroke-dashoffset: 0 !important; }\n}\n</style>")
