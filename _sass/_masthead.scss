@@ -220,6 +220,19 @@
   100% { opacity: 1; transform: translate(0, 0); }
 }
 
+/* Already seen this visit: show the finished wordmark immediately. The class
+   is set in <head> from sessionStorage, so navigating between pages does not
+   replay the intro. */
+.brand-intro-done {
+  .site-brand__initial,
+  .site-brand__grow,
+  .site-brand__char,
+  .site-brand__stem,
+  .site-brand__tittle {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-brand__initial,
   .site-brand__grow,

@@ -7,6 +7,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
 
+<!-- Play the wordmark intro once per visit, not on every navigation. Runs in
+     <head> so the class lands before first paint and the name never flashes. -->
+<script>
+(function () {
+  try {
+    if (window.sessionStorage.getItem('brandIntro') === 'done') {
+      document.documentElement.className += ' brand-intro-done';
+    } else {
+      window.sessionStorage.setItem('brandIntro', 'done');
+    }
+  } catch (e) { /* storage blocked: let it play */ }
+})();
+</script>
+
 <link rel="apple-touch-icon" sizes="57x57" href="{{ base_path }}/images/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="{{ base_path }}/images/apple-touch-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="{{ base_path }}/images/apple-touch-icon-72x72.png">
