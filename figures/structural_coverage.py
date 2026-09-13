@@ -83,11 +83,14 @@ COVERAGE: dict[str, str] = {
     "5. Skill reallocation":    "XX  XX.X  X  X  ...XX  X..  .",
 }
 
-# CIRED blue (#05646D) in five steps, compressed so even the lightest
-# clears 3:1 on white for bold text.
-CHAPTER_COLORS: list[str] = ["#033A3F", "#045057", "#05646D", "#067A85", "#07919E"]
+# CIRED blue, flat across every project: 6.9:1 on white, and the same for a
+# white numeral on the chip. Projects are told apart by number and radius.
+CIRED_BLUE = "#05646D"
+CHAPTER_COLORS: list[str] = [CIRED_BLUE] * 5
 
-FONT_FAMILY = "DejaVu Sans"
+# The site loads Fira Sans, and it is installed here too, so the SVG
+# renders the same face in a browser as matplotlib laid out.
+FONT_FAMILY = "Fira Sans"
 matplotlib.rcParams.update({"font.family": FONT_FAMILY, "svg.fonttype": "none"})
 
 DOT_SIZE = 68
@@ -369,14 +372,11 @@ def draw_ring(ax, slots, L, ppu) -> None:
             # they all sit the same way round in their wedge - but radial text
             # cannot do that around a circle without inverting on the left.
             # label_flip=True keeps every label upright instead.
-            # Radial, centred in the wedge. Radial text has to turn somewhere
-            # or half of it reads upside down; the turn is pushed round to the
-            # end of the ring so the only one left is at the top, and the
-            # lower right no longer switches part way down.
-            lo, hi = L.get("flip_range", (90.0, 360.0 - L["gap"]))
-            rot = s["theta"]
-            if lo < s["theta"] % 360 < hi:
-                rot += 180.0
+            # Radial, centred in the wedge, and turned the same way everywhere.
+            # Radial text has to reverse somewhere; applying the turn to every
+            # label puts that reversal in the gap, where there is nothing to
+            # see, so no two labels on the ring disagree.
+            rot = s["theta"] + 180.0
             x, y = polar(0.5 * (r0 + r1), s["theta"])
             ax.text(x, y, "\n".join(wrap_lines(s["label"], L["wrap"])), rotation=rot,
                     rotation_mode="anchor", ha="center", va="center",
