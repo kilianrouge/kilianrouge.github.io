@@ -311,6 +311,9 @@ $tag-new       : #5f4f96;
    ========================================================================== */
 
 .coverage-figure {
+  /* the theme styles `figure` as a flex container, which makes the child
+     shrink to its min-content width instead of filling the figure */
+  display: block;
   margin: 2.6em 0;
 
   /* a little wider than the text column, centred on it, so the labels have
@@ -329,7 +332,9 @@ $tag-new       : #5f4f96;
   }
 
   svg {
-    display: inline-block;
-    min-width: 640px;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 640px; /* on a phone, scroll rather than shrink the labels */
   }
 }
