@@ -81,11 +81,17 @@
 */
 
 .site-brand {
-  --brand-step: 45ms;      /* stagger between letters */
-  --brand-word: 120ms;     /* stagger between words */
-  --brand-open: 300ms;     /* when the unfold starts */
-  --tittle-size: 0.115em;  /* dot diameter */
-  --tittle-bottom: 0.62em; /* dot height above the baseline */
+  --brand-step: 85ms;   /* stagger between letters */
+  --brand-word: 240ms;  /* stagger between words */
+  --brand-open: 480ms;  /* when the unfold starts */
+
+  /* Measured from Fira Sans 700 (unitsPerEm 1000): the tittle of `i` is
+     187 x 180 units and sits 631 above the baseline. With line-height 1 the
+     baseline sits 165 units above the box bottom (half-leading -100 + ascent
+     935 = 835 from the top), so bottom = 0.165 + 0.631 = 0.796em. */
+  --tittle-w: 0.187em;
+  --tittle-h: 0.180em;
+  --tittle-bottom: 0.796em;
 
   display: inline-block;
   white-space: nowrap;
@@ -95,26 +101,26 @@
 .site-brand__initial {
   display: inline-block;
   line-height: 1;
-  animation: brand-rise 260ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
-  animation-delay: calc(var(--w) * 90ms);
+  animation: brand-rise 400ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation-delay: calc(var(--w) * 160ms);
 }
 
 .site-brand__space {
   display: inline-block;
-  width: 0.3em;
+  width: 0.237em; /* Fira Sans space advance, 237/1000 */
 }
 
 /* the unfolding tail */
 .site-brand__grow {
   display: inline-grid;
   grid-template-columns: 1fr; /* resting = open */
-  /* vertical room so the dropping dots and the toppling l are not clipped
-     while the horizontal mask is still closed */
-  padding: 0.95em 0 0.4em;
-  margin: -0.95em 0 -0.4em;
-  overflow: hidden;
+  /* Mask only the right edge: percentages resolve against the growing box, so
+     100% tracks the unfold while the other three sides stay unclipped. That
+     lets the dots arc in from over the initial and the l swing past the top
+     without needing padding to buy clearance. */
+  clip-path: polygon(-500% -500%, 100% -500%, 100% 500%, -500% 500%);
   vertical-align: baseline;
-  animation: brand-unfold 520ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation: brand-unfold 850ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
   animation-delay: calc(var(--brand-open) + var(--w) * var(--brand-word));
 }
 
@@ -131,9 +137,9 @@
 .site-brand__char {
   display: inline-block;
   line-height: 1; /* tight box, so transform-origins land on the letterform */
-  animation: brand-rise 420ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation: brand-rise 560ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
   animation-delay: calc(
-    var(--brand-open) + 20ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
+    var(--brand-open) + 40ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
   );
 }
 
@@ -145,24 +151,27 @@
 /* o — rolls in */
 .site-brand__char[data-char="o"] {
   animation-name: brand-roll;
-  animation-duration: 640ms;
+  animation-duration: 1150ms;
 }
 
+/* Two full turns carry the roll; travel is kept short because the right-edge
+   clip no longer hides a long approach, and a big one collides with the R. */
 @keyframes brand-roll {
-  from { opacity: 0; transform: translateX(-0.8em) rotate(-360deg); }
-  to   { opacity: 1; transform: translateX(0) rotate(0deg); }
+  0%   { opacity: 0; transform: translateX(-0.34em) rotate(-720deg); }
+  30%  { opacity: 1; }
+  100% { opacity: 1; transform: translateX(0) rotate(0deg); }
 }
 
 /* l — topples upright */
 .site-brand__char[data-char="l"] {
   transform-origin: bottom center;
   animation-name: brand-bascule;
-  animation-duration: 560ms;
+  animation-duration: 950ms;
   animation-timing-function: cubic-bezier(0.2, 1.25, 0.4, 1);
 }
 
 @keyframes brand-bascule {
-  from { opacity: 0; transform: rotate(-85deg); }
+  from { opacity: 0; transform: rotate(-96deg); }
   to   { opacity: 1; transform: rotate(0deg); }
 }
 
@@ -174,9 +183,9 @@
 
 .site-brand__stem {
   display: inline-block;
-  animation: brand-rise 420ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation: brand-rise 560ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
   animation-delay: calc(
-    var(--brand-open) + 20ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
+    var(--brand-open) + 40ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
   );
 }
 
@@ -184,20 +193,31 @@
   position: absolute;
   left: 50%;
   bottom: var(--tittle-bottom);
-  width: var(--tittle-size);
-  height: var(--tittle-size);
-  margin-left: calc(var(--tittle-size) / -2);
+  width: var(--tittle-w);
+  height: var(--tittle-h);
+  margin-left: calc(var(--tittle-w) / -2);
   border-radius: 50%;
   background: currentColor;
-  animation: brand-drop 360ms cubic-bezier(0.3, 1.45, 0.5, 1) backwards;
+  animation: brand-drop 780ms cubic-bezier(0.3, 1.45, 0.5, 1) backwards;
   animation-delay: calc(
-    var(--brand-open) + 260ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
+    var(--brand-open) + 420ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
   );
 }
 
+/* arc in from over the initial, strike the stem, bounce twice, settle */
 @keyframes brand-drop {
-  from { opacity: 0; transform: translateY(-0.8em); }
-  to   { opacity: 1; transform: translateY(0); }
+  0%   { opacity: 0; transform: translate(-1.05em, -1.6em);
+         animation-timing-function: cubic-bezier(0.45, 0, 0.9, 0.55); }
+  14%  { opacity: 1; }
+  42%  { transform: translate(0, 0);
+         animation-timing-function: cubic-bezier(0.1, 0.55, 0.4, 1); }
+  62%  { transform: translate(0, -0.26em);
+         animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5); }
+  80%  { transform: translate(0, 0);
+         animation-timing-function: cubic-bezier(0.1, 0.55, 0.4, 1); }
+  90%  { transform: translate(0, -0.08em);
+         animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5); }
+  100% { opacity: 1; transform: translate(0, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
