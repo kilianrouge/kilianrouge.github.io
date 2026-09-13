@@ -306,3 +306,30 @@ $tag-new       : #5f4f96;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
+
+/* Coverage wheel
+   ========================================================================== */
+
+.coverage-figure {
+  margin: 2.5em 0 2em;
+
+  /* the wheel needs width to stay legible, so let it scroll on a phone
+     rather than shrinking the labels into nothing */
+  &__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  svg {
+    display: block;
+    min-width: 640px;
+  }
+
+  figcaption {
+    margin-top: 0.8em;
+    font-size: $type-size-6;
+    line-height: 1.55;
+    color: $research-muted;
+    text-align: center;
+  }
+}

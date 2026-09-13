@@ -143,6 +143,31 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   </li>
 </ul>
 
+<figure class="coverage-figure sc-wait" markdown="0">
+  <div class="coverage-figure__scroll">
+    {% include figures/structural_coverage.svg %}
+  </div>
+  <figcaption>Figure 2: which dimensions of structural change each chapter covers. The outer ring is the framework, each inner ring a chapter.</figcaption>
+</figure>
+
+<script>
+/* Hold the figure until it is actually on screen, then let it play once. */
+(function () {
+  var fig = document.querySelector('.coverage-figure');
+  if (!fig) return;
+  if (!('IntersectionObserver' in window)) { fig.classList.remove('sc-wait'); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('sc-wait');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  io.observe(fig);
+})();
+</script>
+
 ## Side projects
 
 <ul class="project-list">

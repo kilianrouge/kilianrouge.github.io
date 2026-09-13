@@ -21,3 +21,13 @@
     </div>
   </div>
 </div>
+
+<script>
+/* Clicking the wordmark asks the next page load to replay the intro. */
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a') : null;
+  if (a && a.querySelector && a.querySelector('.site-brand')) {
+    try { sessionStorage.setItem('brandIntroReplay', '1'); } catch (err) {}
+  }
+});
+</script>

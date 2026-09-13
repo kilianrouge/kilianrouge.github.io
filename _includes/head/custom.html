@@ -12,10 +12,21 @@
 <script>
 (function () {
   try {
-    if (window.sessionStorage.getItem('brandIntro') === 'done') {
-      document.documentElement.className += ' brand-intro-done';
+    var s = window.sessionStorage;
+    var entry = performance.getEntriesByType
+      ? performance.getEntriesByType('navigation')[0]
+      : null;
+    var reloaded = entry
+      ? entry.type === 'reload'
+      : !!(performance.navigation && performance.navigation.type === 1);
+    // set by a click on the masthead wordmark, consumed once
+    var asked = s.getItem('brandIntroReplay');
+    if (asked) s.removeItem('brandIntroReplay');
+
+    if (reloaded || asked || !s.getItem('brandIntro')) {
+      s.setItem('brandIntro', 'done');  // play it
     } else {
-      window.sessionStorage.setItem('brandIntro', 'done');
+      document.documentElement.className += ' brand-intro-done';  // skip it
     }
   } catch (e) { /* storage blocked: let it play */ }
 })();
