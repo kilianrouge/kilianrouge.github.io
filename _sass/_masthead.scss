@@ -56,3 +56,156 @@
     font-weight: 700;
   }
 }
+
+/*
+   Brand load animation
+   ==========================================================================
+
+   The wordmark opens from its initials: "KR" lands first, then each word's
+   remaining letters unfold out from behind its capital, pushing the next word
+   rightwards as the space is made.
+
+   The unfold uses an inline-grid column going 0fr -> 1fr, which animates to
+   the text's true width without hardcoding one. The resting state is the
+   finished state, so where that isn't animatable the wordmark just shows.
+
+   Three letters carry their own gesture as they emerge:
+     o  rolls in, rotating
+     l  topples upright from its foot
+     i  stem rises, then the tittle drops onto it
+
+   A tittle can only move independently of its stem if the stem is a real
+   dotless glyph, so `i` renders as U+0131 (latin-ext, ships with Fira Sans)
+   with the dot drawn in CSS. The wordmark is aria-hidden; the adjacent
+   .screen-reader-text span carries the real title.
+*/
+
+.site-brand {
+  --brand-step: 45ms;      /* stagger between letters */
+  --brand-word: 120ms;     /* stagger between words */
+  --brand-open: 300ms;     /* when the unfold starts */
+  --tittle-size: 0.115em;  /* dot diameter */
+  --tittle-bottom: 0.62em; /* dot height above the baseline */
+
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* the initials: present before anything unfolds */
+.site-brand__initial {
+  display: inline-block;
+  line-height: 1;
+  animation: brand-rise 260ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation-delay: calc(var(--w) * 90ms);
+}
+
+.site-brand__space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+/* the unfolding tail */
+.site-brand__grow {
+  display: inline-grid;
+  grid-template-columns: 1fr; /* resting = open */
+  /* vertical room so the dropping dots and the toppling l are not clipped
+     while the horizontal mask is still closed */
+  padding: 0.95em 0 0.4em;
+  margin: -0.95em 0 -0.4em;
+  overflow: hidden;
+  vertical-align: baseline;
+  animation: brand-unfold 520ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation-delay: calc(var(--brand-open) + var(--w) * var(--brand-word));
+}
+
+.site-brand__inner {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+@keyframes brand-unfold {
+  from { grid-template-columns: 0fr; }
+  to   { grid-template-columns: 1fr; }
+}
+
+.site-brand__char {
+  display: inline-block;
+  line-height: 1; /* tight box, so transform-origins land on the letterform */
+  animation: brand-rise 420ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation-delay: calc(
+    var(--brand-open) + 20ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
+  );
+}
+
+@keyframes brand-rise {
+  from { opacity: 0; transform: translateY(0.35em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* o — rolls in */
+.site-brand__char[data-char="o"] {
+  animation-name: brand-roll;
+  animation-duration: 640ms;
+}
+
+@keyframes brand-roll {
+  from { opacity: 0; transform: translateX(-0.8em) rotate(-360deg); }
+  to   { opacity: 1; transform: translateX(0) rotate(0deg); }
+}
+
+/* l — topples upright */
+.site-brand__char[data-char="l"] {
+  transform-origin: bottom center;
+  animation-name: brand-bascule;
+  animation-duration: 560ms;
+  animation-timing-function: cubic-bezier(0.2, 1.25, 0.4, 1);
+}
+
+@keyframes brand-bascule {
+  from { opacity: 0; transform: rotate(-85deg); }
+  to   { opacity: 1; transform: rotate(0deg); }
+}
+
+/* i — stem rises, then the dot drops on */
+.site-brand__char--i {
+  position: relative;
+  animation: none;
+}
+
+.site-brand__stem {
+  display: inline-block;
+  animation: brand-rise 420ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+  animation-delay: calc(
+    var(--brand-open) + 20ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
+  );
+}
+
+.site-brand__tittle {
+  position: absolute;
+  left: 50%;
+  bottom: var(--tittle-bottom);
+  width: var(--tittle-size);
+  height: var(--tittle-size);
+  margin-left: calc(var(--tittle-size) / -2);
+  border-radius: 50%;
+  background: currentColor;
+  animation: brand-drop 360ms cubic-bezier(0.3, 1.45, 0.5, 1) backwards;
+  animation-delay: calc(
+    var(--brand-open) + 260ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
+  );
+}
+
+@keyframes brand-drop {
+  from { opacity: 0; transform: translateY(-0.8em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-brand__initial,
+  .site-brand__grow,
+  .site-brand__char,
+  .site-brand__stem,
+  .site-brand__tittle {
+    animation: none;
+  }
+}
