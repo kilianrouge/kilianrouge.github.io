@@ -148,7 +148,6 @@ Looking at all these dimensions coherently raises key questions for low-demand t
   <div class="coverage-figure__scroll">
     {% include figures/structural_coverage.svg %}
   </div>
-  <figcaption>Figure 2: which dimensions of structural change each chapter covers. The outer ring is the framework, each inner ring a chapter.</figcaption>
 </figure>
 {:/nomarkdown}
 

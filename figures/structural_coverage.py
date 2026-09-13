@@ -565,7 +565,8 @@ SVG_KEYFRAMES = ("\n@keyframes sc-draw { to { stroke-dashoffset: 0; } }"
 
 def animated_svg(slots, coverage, L, path: Path, per_chapter=0.75, lead=0.25) -> None:
     fig, _ax, items = build(slots, coverage, L, gid=True)
-    fig.savefig(path, format="svg", facecolor="white")
+    fig.savefig(path, format="svg", facecolor="white",
+                bbox_inches="tight", pad_inches=0.04)
     plt.close(fig)
     svg = path.read_text(encoding="utf-8")
 
@@ -661,7 +662,8 @@ def render(design, csv_path, out: Path, animate, fmt, dpi, fps, anim_dpi) -> Non
     fig, _ax, _items = build(slots, coverage, L)
     for ext in ("png", "svg", "pdf"):
         p = out.with_suffix("." + ext)
-        fig.savefig(p, dpi=dpi, facecolor="white")
+        fig.savefig(p, dpi=dpi, facecolor="white",
+                    bbox_inches="tight", pad_inches=0.04)
         print(f"wrote {p}")
     plt.close(fig)
 
