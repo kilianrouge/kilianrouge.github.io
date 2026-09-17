@@ -75,9 +75,12 @@
      i  stem rises, then the tittle drops onto it
 
    A tittle can only move independently of its stem if the stem is a real
-   dotless glyph, so `i` renders as U+0131 (latin-ext, ships with Fira Sans)
-   with the dot drawn in CSS. The wordmark is aria-hidden; the adjacent
-   .screen-reader-text span carries the real title.
+   dotless glyph, so `i` renders as U+0131 (latin-ext, ships with Fira Sans).
+   The dot is a real `i` laid over it and clipped to its dot, so it rasterises
+   exactly like the font's own. A box drawn in CSS cannot: at masthead size it
+   is about 3px, which renders as a blob that differs from one i to the next.
+   The wordmark is aria-hidden; the adjacent .screen-reader-text span carries
+   the real title.
 */
 
 .site-brand {
@@ -85,27 +88,14 @@
   --brand-word: 240ms;  /* stagger between words */
   --brand-open: 480ms;  /* when the unfold starts */
 
-  /* Measured from Fira Sans 700 (unitsPerEm 1000): the tittle of `i` is
-     187 x 180 units and sits 631 above the baseline. With line-height 1 the
-     baseline sits 165 units above the box bottom (half-leading -100 + ascent
-     935 = 835 from the top), so bottom = 0.165 + 0.631 = 0.796em.
-     The dot is drawn as a true circle of the mean, 0.184em, snapped to whole
-     pixels: at masthead size a fractional box gets pixel-snapped differently
-     for each `i` depending on where it lands, so the two dots came out at
-     different sizes and slightly oval. */
-  --tittle-d: 0.184em;
-  --tittle-bottom: 0.796em;
+  /* Fira Sans 700 (unitsPerEm 1000): i and dotless i share a 282 advance,
+     the stem tops out at 531 and the dot starts at 631. With line-height 1
+     the baseline sits 835 below the box top, so clipping 745 off the bottom
+     keeps everything above 580: the dot, none of the stem. */
+  --tittle-clip: 0.745em;
 
   display: inline-block;
   white-space: nowrap;
-}
-
-/* a custom property can't fall back on its own: both declarations parse */
-@supports (width: unquote("round(1em, 1px)")) {
-  .site-brand {
-    --tittle-d: max(2px, round(0.184em, 1px));
-    --tittle-bottom: round(0.796em, 1px);
-  }
 }
 
 /* the initials: present before anything unfolds */
@@ -202,13 +192,11 @@
 
 .site-brand__tittle {
   position: absolute;
-  left: 50%;
-  bottom: var(--tittle-bottom);
-  width: var(--tittle-d);
-  height: var(--tittle-d);
-  margin-left: calc(var(--tittle-d) / -2);
-  border-radius: 50%;
-  background: currentColor;
+  top: 0;
+  left: 0;
+  height: 1em;
+  line-height: 1;
+  clip-path: inset(-1em -1em var(--tittle-clip) -1em);
   animation: brand-drop 780ms cubic-bezier(0.3, 1.45, 0.5, 1) backwards;
   animation-delay: calc(
     var(--brand-open) + 420ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
