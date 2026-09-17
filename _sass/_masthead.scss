@@ -76,9 +76,10 @@
 
    A tittle can only move independently of its stem if the stem is a real
    dotless glyph, so `i` renders as U+0131 (latin-ext, ships with Fira Sans).
-   The dot is a real `i` laid over it and clipped to its dot, so it rasterises
-   exactly like the font's own. A box drawn in CSS cannot: at masthead size it
-   is about 3px, which renders as a blob that differs from one i to the next.
+   The dot that drops in is drawn in CSS. The instant it lands it hands over
+   to a real `i` laid over the stem and clipped to its dot, because at
+   masthead size the CSS dot is about 3px and cannot render as a circle:
+   at rest the dots are the font's own, round and identical.
    The wordmark is aria-hidden; the adjacent .screen-reader-text span carries
    the real title.
 */
@@ -93,6 +94,11 @@
      the baseline sits 835 below the box top, so clipping 745 off the bottom
      keeps everything above 580: the dot, none of the stem. */
   --tittle-clip: 0.745em;
+
+  /* the flying dot, sized to the font's: 187 x 180 units, bottom at 631,
+     i.e. 0.796em up from the bottom of a line-height 1 box */
+  --tittle-d: 0.184em;
+  --tittle-bottom: 0.796em;
 
   display: inline-block;
   white-space: nowrap;
@@ -192,15 +198,38 @@
 
 .site-brand__tittle {
   position: absolute;
+  left: 50%;
+  bottom: var(--tittle-bottom);
+  width: var(--tittle-d);
+  height: var(--tittle-d);
+  margin-left: calc(var(--tittle-d) / -2);
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0; /* only exists while it flies; the animation lends it opacity */
+  animation: brand-drop 780ms cubic-bezier(0.3, 1.45, 0.5, 1) backwards;
+  animation-delay: var(--tittle-delay);
+}
+
+/* the resting dot: hidden until the flying one lands on the same spot */
+.site-brand__dot {
+  position: absolute;
   top: 0;
   left: 0;
   height: 1em;
   line-height: 1;
   clip-path: inset(-1em -1em var(--tittle-clip) -1em);
-  animation: brand-drop 780ms cubic-bezier(0.3, 1.45, 0.5, 1) backwards;
-  animation-delay: calc(
+  animation: brand-wait 780ms step-end backwards;
+  animation-delay: var(--tittle-delay);
+}
+
+.site-brand__char--i {
+  --tittle-delay: calc(
     var(--brand-open) + 420ms + var(--w) * var(--brand-word) + var(--n) * var(--brand-step)
   );
+}
+
+@keyframes brand-wait {
+  from, to { opacity: 0; }
 }
 
 /* arc in from over the initial, strike the stem, bounce twice, settle */
@@ -227,7 +256,8 @@
   .site-brand__grow,
   .site-brand__char,
   .site-brand__stem,
-  .site-brand__tittle {
+  .site-brand__tittle,
+  .site-brand__dot {
     animation: none;
   }
 }
@@ -237,7 +267,8 @@
   .site-brand__grow,
   .site-brand__char,
   .site-brand__stem,
-  .site-brand__tittle {
+  .site-brand__tittle,
+  .site-brand__dot {
     animation: none;
   }
 }
