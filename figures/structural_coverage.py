@@ -24,6 +24,8 @@ Usage
     python structural_coverage.py --all                 # render all three
     python structural_coverage.py --columns             # print column order
     python structural_coverage.py --csv data.csv        # matrix from a CSV
+    python structural_coverage.py --exclude 5 --out structural_coverage_no5
+                                                        # drop chapter 5
 """
 
 from __future__ import annotations
@@ -677,6 +679,8 @@ def main() -> None:
     ap.add_argument("--format", default="svg", choices=["svg", "mp4", "gif"])
     ap.add_argument("--csv", type=Path)
     ap.add_argument("--columns", action="store_true")
+    ap.add_argument("--exclude", type=int, nargs="+", default=[], metavar="N",
+                    help="leave out the chapters with these leading numbers")
     ap.add_argument("--out", type=Path, default=Path("structural_coverage"))
     ap.add_argument("--dpi", type=int, default=200)
     ap.add_argument("--fps", type=int, default=30)
@@ -687,6 +691,10 @@ def main() -> None:
         for i, s in enumerate(build_slots(LAYOUTS[args.design]["gap"]), 1):
             print(f"  {i:>2}. {s['category']:<26} {'-' if s['is_own_label'] else s['label']}")
         return
+
+    if args.exclude:
+        drop = {str(n) for n in args.exclude}
+        CHAPTERS[:] = [c for c in CHAPTERS if c.split(".")[0].strip() not in drop]
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     designs = sorted(LAYOUTS) if args.all else [args.design]
