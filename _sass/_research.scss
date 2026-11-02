@@ -22,6 +22,83 @@ $research-faint : mix(#fff, $text-color, 55%);
   }
 }
 
+/* PhD handout
+   ========================================================================== */
+
+/* One compact row under the lead: visible straight away, but sized to its
+   content so it never reads as a banner standing between reader and page. */
+.handout {
+  margin: -1em 0 2.5em;
+}
+
+.handout-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9em;
+  max-width: 100%;
+  padding: 0.7em 1.1em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: mix(#fff, $background-color, 60%);
+  color: $text-color;
+  text-decoration: none;
+  transition: $global-transition;
+
+  &:hover,
+  &:focus {
+    border-color: mix(#fff, $link-color, 55%);
+    box-shadow: 0 4px 12px rgba($gray, 0.14);
+    color: $text-color;
+    text-decoration: none;
+    transform: translateY(-2px);
+
+    .handout-link__icon,
+    .handout-link__arrow {
+      color: $link-color;
+    }
+
+    .handout-link__arrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+.handout-link__icon {
+  flex: none;
+  width: 1.5em;
+  height: 1.5em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: $research-muted;
+  transition: $global-transition;
+}
+
+.handout-link__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.4;
+}
+
+.handout-link__title {
+  font-size: $type-size-6;
+  font-weight: 600;
+}
+
+.handout-link__meta {
+  font-size: $type-size-7;
+  color: $research-faint;
+}
+
+.handout-link__arrow {
+  flex: none;
+  color: $research-faint;
+  transition: $global-transition;
+}
+
 .research-section {
   scroll-margin-top: 90px; /* clear the fixed masthead on anchor jumps */
 }

@@ -12,6 +12,17 @@ redirect_from:
 The main concerns with low-demand transitions are its macroeconomic consequences; think unemployment, inequality, deficits, monetary instabilityn. The defining approach of my PhD is to consider them not as separate obstacles but as facets of one process of **directed structural change**, constrained by ecological limits and by the requirement that needs be met.
 </div>
 
+<div class="handout">
+<a class="handout-link" href="/files/research/261028_ROUGE_PhDHandout.pdf">
+  <svg class="handout-link__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>
+  <span class="handout-link__text">
+    <span class="handout-link__title">The PhD in four pages: get the handout</span>
+    <span class="handout-link__meta">PDF · in French · October 2026</span>
+  </span>
+  <span class="handout-link__arrow" aria-hidden="true">→</span>
+</a>
+</div>
+
 <nav class="section-rail" aria-label="Page sections">
   <a class="section-rail__item" href="#context">
     <span class="section-rail__dot" aria-hidden="true"></span>
