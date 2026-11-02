@@ -141,17 +141,6 @@ Looking at all these dimensions coherently raises key questions for low-demand t
       <p class="project-card__actions"><a class="deck-link" href="/files/research/poster_UE.pdf">ICEM2026 Poster</a></p>
     </div>
   </li>
-  <li class="project-card">
-    <div class="project-card__head">
-      <span class="project-card__num" aria-hidden="true">05</span>
-      <h3 class="project-card__title">Occupational reallocation constraints in demand-side mitigation: French sufficiency pathways</h3>
-      <ul class="tag-row">
-        <li class="tag tag--method">Agent-based model</li>
-        <li class="tag tag--new">Vague idea</li>
-      </ul>
-    </div>
-    <p class="project-card__desc">Whether workers released by contracting sectors can actually reach the expanding ones.</p>
-  </li>
 </ul>
 
 {::nomarkdown}
